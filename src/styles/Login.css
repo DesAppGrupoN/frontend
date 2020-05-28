@@ -1,0 +1,73 @@
+
+
+.container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    overflow: auto;
+}
+
+.bg-image {
+    background-image: url("../images/background-login-register.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-box {
+    width: 24%;
+    height: 50%;
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    box-shadow: 8px 8px 20px -2px rgba(87,87,87,0.8);
+    border-radius: 1pc;
+    background-color: palegoldenrod;
+}
+
+.login-form {
+    width: 70%;
+    margin-left: 15%;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+    text-align: center;
+    color: #4d4d4d;
+    font-size: 24px;
+    padding: 10% 0 10% 0;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 5mm;
+    margin-bottom: 15px;
+    box-sizing:border-box;
+    background-color: palegoldenrod;
+}
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 5mm;
+}
+.bottom-text {
+    text-align: center;
+}
+.link {
+    color: steelblue;
+}
+.form {
+    height: 10%;
+}
