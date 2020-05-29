@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-	"node": "10.16.3",
-	"npm": "6.9.0"
+    "node": "10.16.3",
+    "npm": "6.9.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "mdbreact": "^4.27.0",
     "react": "^16.13.1",
@@ -38,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devServer": {
-        "publicPath": '/public'
   }
 }

@@ -21,10 +21,10 @@
 
 .login-box {
     width: 24%;
-    height: 50%;
     position: absolute;
     top: 20%;
     left: 38%;
+    padding-bottom: 1cm;
     box-shadow: 8px 8px 20px -2px rgba(87,87,87,0.8);
     border-radius: 1pc;
     background-color: palegoldenrod;
