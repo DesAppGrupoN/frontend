@@ -1,21 +1,20 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { AuthContext } from '../contexts/AuthContext';
 import Register from "../screens/Register";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
-
-const loged = false;
+import { login, register } from '../services/User';
 
 const logedBrowser = () => {
   return (
     <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-    </Switch>
-  </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   )
 }
-
 
 const loginBrowser = () => (
   <BrowserRouter>
@@ -27,5 +26,34 @@ const loginBrowser = () => (
 )
 
 export default () => {
-  return loged ? logedBrowser() : loginBrowser()
+  const [user, setUser] = React.useState(null);
+
+  var auth = React.useMemo(
+    () => ({
+      login: (username, password, errorCallback) => {
+        login(username, password).then(res => handleResponse(res, errorCallback)).catch(res => handleResponse(res, errorCallback));
+      },
+      logout: () => {
+        setUser(null);
+      },
+      register: (body, errorCallback) => {
+        register(body).then(res => handleResponse(res, errorCallback)).catch(res => handleResponse(res, errorCallback));
+      },
+    }), [],
+  );
+
+  function handleResponse(res, errorCallback) {
+    if(String(res.status).charAt(0) == 2) {
+        setUser(res.data);
+    }
+    else {
+        errorCallback(res.data.description);
+    }
+}
+
+  return (
+    <AuthContext.Provider value={auth} >
+      {user ? logedBrowser() : loginBrowser()}
+    </AuthContext.Provider>
+  );
 }
