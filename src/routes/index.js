@@ -5,12 +5,14 @@ import Register from "../screens/Register";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import { login, register } from '../services/User';
+import Navbar from "../components/Navbar";
 
-const logedBrowser = () => {
+const logedBrowser = (user) => {
   return (
     <BrowserRouter>
+      <Navbar  user={user}/>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={() => <Home/>} />
       </Switch>
     </BrowserRouter>
   )
@@ -26,7 +28,7 @@ const loginBrowser = () => (
 )
 
 export default () => {
-  const [user, setUser] = React.useState("null");
+  const [user, setUser] = React.useState(null);
 
   var auth = React.useMemo(
     () => ({
@@ -34,6 +36,7 @@ export default () => {
         login(username, password).then(res => handleResponse(res, errorCallback)).catch(res => handleResponse(res, errorCallback));
       },
       logout: () => {
+        console.log("ME LLAMAN")
         setUser(null);
       },
       register: (body, errorCallback) => {
@@ -53,7 +56,7 @@ export default () => {
 
   return (
     <AuthContext.Provider value={auth} >
-      {user ? logedBrowser() : loginBrowser()}
+      {user ? logedBrowser(user) : loginBrowser()}
     </AuthContext.Provider>
   );
 }

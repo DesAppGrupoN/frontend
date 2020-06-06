@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import '../styles/Home.css';
-import Navbar from '../components/Navbar'
+import SearchBar from '../components/SearchBar';
 
-const Login = (props) => {
-    console.log("PROPS:", props);
-
+const Home = (props) => {
     return (
-            <Navbar/>
-    )
+        <div className="homeContainer">      
+            <p className="title">¿Que querés comer hoy?</p>
+            <SearchBar/>
+        </div>
+    );
 }
 
-export default Login;
+export default Home;

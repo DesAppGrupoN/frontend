@@ -1,15 +1,9 @@
 
-  
-  body {
-    margin: 0px;
-    font-family: 'segoe ui';
-  }
-  
   .nav {
-    height: 50px;
+    height: 6%;
     width: 100%;
     background-color: #ffffff;
-    position: relative;
+    position: absolute;
     box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
   }
   
@@ -21,18 +15,21 @@
     display: inline-block;
     font-size: 22px;
     color: #FF441F;
-    padding: 10px 10px 10px 10px;
+    padding: 16px 13px;
   }
   
   .nav > .nav-links {
-    display: inline;
+    display: inline-flex;
     float: right;
     font-size: 18px;
+    height: 100%;
+    margin-right: 1%;
   }
   
   .nav > .nav-links > a {
+    padding-top: 8%;
+    margin-left: 10px;
     display: inline-block;
-    padding: 13px 10px 13px 10px;
     text-decoration: none;
     color: #000;
   }
