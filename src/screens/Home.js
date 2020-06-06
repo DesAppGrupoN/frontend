@@ -1,21 +1,13 @@
 import React, { Component } from "react";
+import '../styles/Home.css';
+import Navbar from '../components/Navbar'
 
-export default class Login extends Component {
+const Login = (props) => {
+    console.log("PROPS:", props);
 
-    constructor(props) {
-        super(props);
-    }
-
-    handleSubmit(event) {
-
-    }
-
-    render() {
-        return (
-            <div>
-                <p> Pantalla de inicio </p>
-            </div>
-        )
-    }
-
+    return (
+            <Navbar/>
+    )
 }
+
+export default Login;

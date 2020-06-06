@@ -26,7 +26,7 @@ const loginBrowser = () => (
 )
 
 export default () => {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState("null");
 
   var auth = React.useMemo(
     () => ({
