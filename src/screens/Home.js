@@ -6,7 +6,7 @@ import { getAllCommerce } from "../services/Commerce";
    
 const Home = (props) => {
     return (
-        <div className="homeContainer">      
+        <div className="container">      
             <p className="title">¿Que querés comer hoy?</p>
             <SearchBar/>
             <Commerces  commerces= {getAllCommerce}   />    

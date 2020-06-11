@@ -1,12 +1,11 @@
 html,
 body {
-  padding: 0;
   margin: 0;
   background-color: #eaeaea;
 }
 
-.homeContainer {
-  padding-top: 70px;
+.container {
+  padding-top: 6%;
 }
 
 .title {

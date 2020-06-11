@@ -27,7 +27,7 @@ const Register = (props) => {
   }
 
     return (
-      <div className='container'>
+      <div className='lr-container'>
       <div className='bg-image'/>
       <div className='login-box'>
         <div className="login-form">

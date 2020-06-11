@@ -1,6 +1,5 @@
 
   .nav {
-    height: 6%;
     width: 100%;
     background-color: #ffffff;
     position: absolute;
@@ -27,8 +26,9 @@
   }
   
   .nav > .nav-links > a {
-    padding-top: 8%;
-    margin-left: 10px;
+    padding-top: 4%;
+    padding-left: 10px;
+    padding-right: 10px;
     display: inline-block;
     text-decoration: none;
     color: #000;
