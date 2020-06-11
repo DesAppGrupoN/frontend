@@ -5,6 +5,7 @@ import Register from "../screens/Register";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import AddProduct from '../screens/AddProduct';
+import AddCommerce from '../screens/AddCommerce';
 import { login, register } from '../services/User';
 import Navbar from "../components/Navbar";
 
@@ -28,7 +29,13 @@ const loginBrowser = () => (
     </Switch>
   </BrowserRouter>
 )
-
+const commerceBrowser = () => (
+  <BrowserRouter>
+    <Switch>
+    <Route exact path="/new_commerce" component={() => <AddCommerce/>} />
+    </Switch>
+  </BrowserRouter>
+)
 export default () => {
   const [user, setUser] = React.useState("null");
 
@@ -57,7 +64,7 @@ export default () => {
 
   return (
     <AuthContext.Provider value={auth} >
-      {user ? logedBrowser(user) : loginBrowser()}
+      {user ? logedBrowser(user) : loginBrowser(),commerceBrowser()}
     </AuthContext.Provider>
   );
 }
