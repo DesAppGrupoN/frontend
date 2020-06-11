@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import NewOrEditProduct from '../components/NewOrEditProduct';
+import NewOrEditCommerce from '../components/NewOrEditCommerce';
 import { addCommerce } from '../services/Commerce';
 
 
 const AddCommerce = (props) => {
 
-    const [showAdd, setShowAdd] = useState(false);
+    const [showAddCommerce, setShowAdd] = useState(false);
 
     function acept(name, description, sector, address, image, maxDistance,attencionSchedule) {
         const body = {
@@ -24,12 +24,12 @@ const AddCommerce = (props) => {
 
     return (
         <div className="container">
-            {showAdd ?
-                <NewOrEditProduct onAccept={acept} onCancel={() => setShowAdd(false)}/>
+            {showAddCommerce ?
+                <NewOrEditCommerce onAccept={acept} onCancel={() => setShowAdd(false)}/>
                 :
                 <div/>
             }
-            <button onClick={() => setShowAdd(!showAdd)}>Boton</button>
+            <button onClick={() => setShowAdd(!showAddCommerce)}>Boton</button>
         </div>
     )
 }

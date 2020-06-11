@@ -16,6 +16,7 @@ const logedBrowser = (user) => {
       <Switch>
         <Route exact path="/" component={() => <Home/>} />
         <Route exact path="/new_product" component={() => <AddProduct/>} />
+        <Route exact path="/new_commerce" component={() => <AddCommerce/>} />
       </Switch>
     </BrowserRouter>
   )
@@ -32,7 +33,7 @@ const loginBrowser = () => (
 const commerceBrowser = () => (
   <BrowserRouter>
     <Switch>
-    <Route exact path="/new_commerce" component={() => <AddCommerce/>} />
+    <Route exact path="/new_commerce" component={() => <AddProduct/>} />
     </Switch>
   </BrowserRouter>
 )
@@ -64,7 +65,7 @@ export default () => {
 
   return (
     <AuthContext.Provider value={auth} >
-      {user ? logedBrowser(user) : loginBrowser(),commerceBrowser()}
+      {user ? logedBrowser(user) : loginBrowser()}
     </AuthContext.Provider>
   );
 }
