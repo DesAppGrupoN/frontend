@@ -1,17 +1,14 @@
 html,
 body {
-  margin: 0;
   background-color: #eaeaea;
 }
 
-.container {
-  padding-top: 6%;
+.back {
+  position: relative;
+  z-index: 0;
 }
 
-.title {
-  font-size: 45px;
-  font-family: Helvetica,Arial,sans-serif;
-  font-weight: 550;
-  text-align: center;
-  margin-top: 15%;
+.front {
+  z-index: 1;
 }
+

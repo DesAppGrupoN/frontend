@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import Register from "../screens/Register";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
-import AddProduct from '../screens/AddProduct';
+import Products from '../screens/Products';
 import AddCommerce from '../screens/AddCommerce';
 import { login, register } from '../services/User';
 import Navbar from "../components/Navbar";
@@ -15,7 +15,7 @@ const logedBrowser = (user) => {
       <Navbar  user={user}/>
       <Switch>
         <Route exact path="/" component={() => <Home/>} />
-        <Route exact path="/new_product" component={() => <AddProduct/>} />
+        <Route exact path="/new_product" component={() => <Products/>} />
         <Route exact path="/new_commerce" component={() => <AddCommerce/>} />
       </Switch>
     </BrowserRouter>
@@ -30,13 +30,7 @@ const loginBrowser = () => (
     </Switch>
   </BrowserRouter>
 )
-const commerceBrowser = () => (
-  <BrowserRouter>
-    <Switch>
-    <Route exact path="/new_commerce" component={() => <AddProduct/>} />
-    </Switch>
-  </BrowserRouter>
-)
+
 export default () => {
   const [user, setUser] = React.useState("null");
 

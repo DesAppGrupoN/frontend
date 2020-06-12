@@ -9,12 +9,12 @@ const Navbar = (props) => {
   return (
     <nav className="#ef5350 red lighten-1">
       <div className="nav-wrapper">
-        <a href="/" className="brand-logo">Comprando en casa</a>
+        <Link to="/" className="brand-logo">Comprando en casa</Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><a href="/new_product">Agregar producto</a></li>
-          <li><a href="/new_commerce">Agregar comercio</a></li>
-          <li><a href="badges.html">Mi perfil</a></li>
-          <li><a href="collapsible.html">Cerrar sesion</a></li>
+          <li><Link to={{pathname: "/new_product", restaurant_id: 1}}>Agregar producto</Link></li>
+          <li><Link to="/new_commerce">Agregar comercio</Link></li>
+          <li><Link to="badges.html">Mi perfil</Link></li>
+          <li><Link to="collapsible.html">Cerrar sesion</Link></li>
         </ul>
       </div>
     </nav>
