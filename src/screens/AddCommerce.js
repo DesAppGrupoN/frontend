@@ -19,7 +19,7 @@ const AddCommerce = (props) => {
             "attencionSchedule": attencionSchedule
         }
 
-        addCommerce(body).then(res => console.log("Exito")).catch(res => console.log(res))
+        addCommerce(body)
     }
 
     return (

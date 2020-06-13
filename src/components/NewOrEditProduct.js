@@ -10,6 +10,7 @@ const NewOrEditProduct = (props) => {
     const [price, setPrice] = useState();
     const [stock, setStock] = useState();
     const [image, setImage] = useState();
+    const [id, setId] = useState(undefined);
     const [active, setActive] = useState("");
     const product = props.product;
 
@@ -17,14 +18,15 @@ const NewOrEditProduct = (props) => {
         if(product) {
             setName(product.name);
             setBrand(product.brand);
-            //setDescription(product.description);
+            setDescription(product.description);
             setCategory(product.category);
             setPrice(product.price);
             setStock(product.stock);
             setImage(product.image);
+            setId(product.id);
             setActive("active");
         }
-    })
+    }, [])
 
     return (
         <div className='popup'>
@@ -32,18 +34,18 @@ const NewOrEditProduct = (props) => {
                 <form class="col s6 offset-s3 #f5f5f5 grey lighten-4">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="name" type="text" class="validate" onChange={(event) => setName(event.target.value)} value={name}/>
+                            <input id="name" type="text" class="validate" onChange={(event) => setName(event.target.value)} defaultValue={name}/>
                             <label className={active} for="name">Nombre</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="brand" type="text" class="validate" onChange={(event) => setBrand(event.target.value)} value={brand}/>
+                            <input id="brand" type="text" class="validate" onChange={(event) => setBrand(event.target.value)} defaultValue={brand}/>
                             <label className={active} for="brand">Marca</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="description" type="text" class="validate" onChange={(event) => setDescription(event.target.value)} value={description}/>
+                            <input id="description" type="text" class="validate" onChange={(event) => setDescription(event.target.value)} defaultValue={description}/>
                             <label className={active} for="description">Descripcion</label>
                         </div>
                     </div>
@@ -51,37 +53,37 @@ const NewOrEditProduct = (props) => {
 
                     <label>Categoria</label>
                     <div class="row">
-                        <select class="browser-default #f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} value={category}>
+                        <select class="browser-default #f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} defaultValue={category}>
                             <option value="" disabled={true} selected="">Selecciona una categoria</option>
-                            <option value="1">Limpieza</option>
-                            <option value="2">Bebidas</option>
-                            <option value="3">Alimentos</option>
+                            <option value="LIMPIEZA">Limpieza</option>
+                            <option value="BEBIDAS">Bebidas</option>
+                            <option value="ALIMENTOS">Alimentos</option>
                         </select>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="price" type="number" class="validate" onChange={(event) => setPrice(event.target.value)} value={price}/>
+                            <input id="price" type="number" class="validate" onChange={(event) => setPrice(event.target.value)} defaultValue={price}/>
                             <label className={active} for="price">Price</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="stock" type="number" class="validate" onChange={(event) => setStock(event.target.value)} value={stock}/>
+                            <input id="stock" type="number" class="validate" onChange={(event) => setStock(event.target.value)} defaultValue={stock}/>
                             <label className={active} for="stock">Stock</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="image" type="text" class="validate" onChange={(event) => setImage(event.target.value)} value={image}/>
+                            <input id="image" type="text" class="validate" onChange={(event) => setImage(event.target.value)} defaultValue={image}/>
                             <label className={active} for="image">Link a imagen</label>
                         </div>
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, description, category, price, stock, image)}>Aceptar</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, description, category, price, stock, image, id)}>Aceptar</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>Cancelar</a>
                     </div>
 

@@ -6,7 +6,6 @@ const Product = (props) => {
 
     const product = props.product;
     const className = props.isMobile() ? "row col s12" : "row col s10 offset-l1";
-    console.log(product);
     return (
         <div className={className}>
             <div className="card horizontal">
@@ -22,7 +21,7 @@ const Product = (props) => {
                     </div>
                     <div className="card-action">
                         <Link onClick={() => props.onEdit(product)}>Editar</Link>
-                        <a href="#">Eliminar</a>
+                        <Link onClick={() => props.onDelete(product)}>Eliminar</Link>
                     </div>
                 </div>
             </div>
