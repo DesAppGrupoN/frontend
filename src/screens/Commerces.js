@@ -11,18 +11,19 @@ const Commerces = (props) => {
     const [selectedCommerce, setSelectedCommerce] = useState(null);
     const history = useHistory();
 
-    function submitCommerce(name, description, sector, address, image, paymethods, maxDistance, attentionSchedule, id) {
+    function submitCommerce(name, description, sector, address, image, payMethods, maxDistance, attentionSchedule, id) {
         const body = {
             "name": name,
             "description": description,
             "sector": sector,
             "address": address,
             "image": image,
-            "paymethods": paymethods,
+            "payMethods": payMethods,
             "maxDistance": maxDistance,
             "attentionSchedule": attentionSchedule,
             "id": id
         }
+        
         addCommerce(body).then(() => toggleShowAdd());
     }
 

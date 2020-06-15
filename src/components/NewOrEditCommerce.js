@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getCommerceSectors, getCommercePaymethods } from '../services/Commerce'
 import M from 'materialize-css/dist/js/materialize.min.js'
 import '../styles/NewOrEditProduct.css';
 
@@ -7,9 +8,11 @@ const NewOrEditCommerce = (props) => {
     const [name, setName] = useState();
     const [description, setDescription] = useState();
     const [sector, setSector] = useState();
+    const [sectors, setSectors] = useState([]);
     const [address, setAddress] = useState();
     const [image, setImage] = useState();
-    const [payMethods, setPaymethods] = useState();
+    const [payMethodsSelected, setPaymethodsSelected] = useState();
+    const [payMethods, setPaymethods] = useState([]);
     const [maxDistance, setMaxDistance] = useState();
     const [attentionSchedule, setAttentionSchedule] = useState(undefined);
     const [id, setId] = useState(undefined);
@@ -23,13 +26,14 @@ const NewOrEditCommerce = (props) => {
             setSector(commerce.sector);
             setAddress(commerce.address)
             setImage(commerce.image);
-            setPaymethods(commerce.payMethods)
+            setPaymethodsSelected(commerce.payMethods)
             setMaxDistance(commerce.maxDistance)
             setAttentionSchedule(commerce.attentionSchedule)
             setId(commerce.id);
             setActive("active");
         }
-        M.AutoInit();
+        getCommerceSectors().then(res => setSectors(res.data)).then(() => M.AutoInit());
+        getCommercePaymethods().then(res => setPaymethods(res.data)).then(() => M.AutoInit());
     }, [])
 
 
@@ -66,17 +70,14 @@ const NewOrEditCommerce = (props) => {
                     <div class="row">
                         <select class="#f5f5f5 grey lighten-4" onChange={(event) => setSector(event.target.value)} defaultValue={sector}>
                             <option value="" disabled={true} selected="">Selecciona una categoria</option>
-                            <option value="FOOD">Comidas</option>
-                            <option value="FARMACY">Farmacia</option>
-                            <option value="SUPERMARKER">Supermercado</option>
+                            {sectors.map(sect => <option value={sect}>{sect}</option> ) }
                         </select>
                     </div>
 
                     <label>Metodos de Pago</label>
                     <div class="row">
-                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setPaymethods(Array.from(event.target.selectedOptions, option => option.value))} defaultValue={payMethods}>
-                            <option value="CASH">Efectivo</option>
-                            <option value="CREDITH_CARD">Tarjeta</option>
+                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setPaymethodsSelected(Array.from(event.target.selectedOptions).map(o => o.value))} defaultValue={payMethodsSelected}>
+                            {payMethods.map(method => <option value={method}>{method}</option> ) }
                         </select>
                     </div>
 
@@ -88,7 +89,7 @@ const NewOrEditCommerce = (props) => {
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethods, maxDistance, attentionSchedule, id)}>Aceptar</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, attentionSchedule, id)}>Aceptar</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>Cancelar</a>
                     </div>
 
