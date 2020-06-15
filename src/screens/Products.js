@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NewOrEditProduct from '../components/NewOrEditProduct';
 import ListProduct from '../components/ListProducts';
 import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/Product';
-import {Link, useLocation} from "react-router-dom";
+import {Link, withRouter, useLocation} from "react-router-dom";
 
 const Products = (props) => {
 
@@ -10,11 +10,13 @@ const Products = (props) => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const location = useLocation();
-    const commerceId = location.restaurant_id;
+    const commerceId = location.commerce_id;
+
+    console.log(props);
 
     function submitProduct(name, brand, description, category, price, stock, image, id) {
         const body = {
-            "commerceId": 1,
+            "commerceId": commerceId,
             "name": name, 
             "brand": brand, 
             "description": description, 
@@ -65,4 +67,4 @@ const Products = (props) => {
     )
 }
 
-export default Products;
+export default withRouter(Products);

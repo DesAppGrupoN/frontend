@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListCommerces from '../components/ListCommerces';
 import { addCommerce, deleteCommerce, getAllCommerce } from '../services/Commerce';
-import { Link, useLocation } from "react-router-dom";
+import { Link, withRouter, useHistory } from "react-router-dom";
 import NewOrEditCommerce from "../components/NewOrEditCommerce";
 
 const Commerces = (props) => {
@@ -9,7 +9,7 @@ const Commerces = (props) => {
     const [showAdd, setShowAdd] = useState(false);
     const [commerces, setCommerces] = useState([]);
     const [selectedCommerce, setSelectedCommerce] = useState(null);
-    const location = useLocation();
+    const history = useHistory();
 
     function submitCommerce(name, description, sector, address, image, paymethods, maxDistance, attentionSchedule, id) {
         const body = {
@@ -39,6 +39,7 @@ const Commerces = (props) => {
         setSelectedCommerce(commerce);
         toggleShowAdd();
     }
+
     useEffect(() => {
         getAllCommerce().then(res => setCommerces(res.data));
     }, []);

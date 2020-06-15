@@ -16,7 +16,7 @@ const ListCommerces = (props) => {
             {list.map(commerce => {
                 return (
                     <div className={"col s" + cols}>
-                        <Commerce onEdit={props.onEdit} onDelete={props.onDelete} key={commerce.id} commerce={commerce} />
+                        <Commerce onSelect={props.onSelect} onEdit={props.onEdit} onDelete={props.onDelete} key={commerce.id} commerce={commerce} />
                     </div>
                 );
             })}

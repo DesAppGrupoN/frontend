@@ -14,10 +14,12 @@ const Commerce = (props) => {
                 <div className="card-stacked">
                     <div className="card-content">
                         <h5 className="col s12 m4 l10">{commerce.name}</h5>
-                        <h5 className="col s12 m4 l10">${commerce.sector}</h5>
-                        <h5 className="col s12 m4 l10">${commerce.address}</h5>
+                        <p className="col s12 m4 l2">{commerce.sector}</p>
+                        <h6 className="col s12">{commerce.description}</h6>
+                        <h6 className="col s12">{commerce.address}</h6>
                     </div>
                     <div className="card-action">
+                        <Link to={{pathname: "/products", commerce_id: commerce.id}}>Ver productos</Link>
                         <Link onClick={() => props.onEdit(commerce)}>Editar</Link>
                         <Link onClick={() => props.onDelete(commerce)}>Eliminar</Link>
                     </div>

@@ -15,8 +15,8 @@ const logedBrowser = (user) => {
       <Navbar  user={user}/>
       <Switch>
         <Route exact path="/" component={() => <Home/>} />
-        <Route exact path="/new_product" component={() => <Products/>} />
-        <Route exact path="/new_commerce" component={() => <Commerces/>} />
+        <Route exact path="/products" component={() => <Products/>} />
+        <Route exact path="/commerces" component={() => <Commerces/>} />
       </Switch>
     </BrowserRouter>
   )

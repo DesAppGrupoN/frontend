@@ -11,10 +11,9 @@ const Navbar = (props) => {
       <div className="nav-wrapper">
         <Link to="/" className="brand-logo">Comprando en casa</Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><Link to={{pathname: "/new_product", restaurant_id: 1}}>Agregar producto</Link></li>
-          <li><Link to="/new_commerce">Agregar comercio</Link></li>
+          <li><Link to="/commerces">Mis comercios</Link></li>
           <li><Link to="badges.html">Mi perfil</Link></li>
-          <li><Link to="collapsible.html">Cerrar sesion</Link></li>
+          <li><Link onClick={logout} to="/">Cerrar sesion</Link></li>
         </ul>
       </div>
     </nav>
