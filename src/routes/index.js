@@ -5,7 +5,7 @@ import Register from "../screens/Register";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Products from '../screens/Products';
-import AddCommerce from '../screens/AddCommerce';
+import Commerces from '../screens/Commerces';
 import { login, register } from '../services/User';
 import Navbar from "../components/Navbar";
 
@@ -16,7 +16,7 @@ const logedBrowser = (user) => {
       <Switch>
         <Route exact path="/" component={() => <Home/>} />
         <Route exact path="/new_product" component={() => <Products/>} />
-        <Route exact path="/new_commerce" component={() => <AddCommerce/>} />
+        <Route exact path="/new_commerce" component={() => <Commerces/>} />
       </Switch>
     </BrowserRouter>
   )
