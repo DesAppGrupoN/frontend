@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import M from 'materialize-css/dist/js/materialize.min.js'
 import '../styles/NewOrEditProduct.css';
 
 const NewOrEditProduct = (props) => {
@@ -26,6 +27,7 @@ const NewOrEditProduct = (props) => {
             setId(product.id);
             setActive("active");
         }
+        M.AutoInit();
     }, [])
 
     return (
@@ -53,7 +55,7 @@ const NewOrEditProduct = (props) => {
 
                     <label>Categoria</label>
                     <div class="row">
-                        <select class="browser-default #f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} defaultValue={category}>
+                        <select class="#f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} defaultValue={category}>
                             <option value="" disabled={true} selected="">Selecciona una categoria</option>
                             <option value="LIMPIEZA">Limpieza</option>
                             <option value="BEBIDAS">Bebidas</option>

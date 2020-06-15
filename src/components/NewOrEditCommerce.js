@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import M from 'materialize-css/dist/js/materialize.min.js'
 import '../styles/NewOrEditProduct.css';
 
 const NewOrEditCommerce = (props) => {
@@ -28,8 +29,10 @@ const NewOrEditCommerce = (props) => {
             setId(commerce.id);
             setActive("active");
         }
-
+        M.AutoInit();
     }, [])
+
+
 
     return (
         <div className='popup'>
@@ -61,7 +64,7 @@ const NewOrEditCommerce = (props) => {
 
                     <label>Sector</label>
                     <div class="row">
-                        <select class="browser-default #f5f5f5 grey lighten-4" onChange={(event) => setSector(event.target.value)} defaultValue={sector}>
+                        <select class="#f5f5f5 grey lighten-4" onChange={(event) => setSector(event.target.value)} defaultValue={sector}>
                             <option value="" disabled={true} selected="">Selecciona una categoria</option>
                             <option value="FOOD">Comidas</option>
                             <option value="FARMACY">Farmacia</option>
@@ -71,7 +74,7 @@ const NewOrEditCommerce = (props) => {
 
                     <label>Metodos de Pago</label>
                     <div class="row">
-                        <select class="browser-default #f5f5f5 grey lighten-4" onChange={(event) => setPaymethods(event.target.value)} defaultValue={payMethods} multiple>
+                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setPaymethods(Array.from(event.target.selectedOptions, option => option.value))} defaultValue={payMethods}>
                             <option value="CASH">Efectivo</option>
                             <option value="CREDITH_CARD">Tarjeta</option>
                         </select>
