@@ -12,3 +12,9 @@ body {
   z-index: 1;
 }
 
+.homeContainer {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+}

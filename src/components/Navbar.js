@@ -12,7 +12,7 @@ const Navbar = (props) => {
         <Link to="/" className="brand-logo">Comprando en casa</Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><Link to="/commerces">Mis comercios</Link></li>
-          <li><Link to="badges.html">Mi perfil</Link></li>
+          <li><Link to="/profile">Mi perfil</Link></li>
           <li><Link onClick={logout} to="/">Cerrar sesion</Link></li>
         </ul>
       </div>
