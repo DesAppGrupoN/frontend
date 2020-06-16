@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AuthContext } from '../contexts/AuthContext';
 import Register from "../screens/Register";
@@ -8,11 +8,12 @@ import Products from '../screens/Products';
 import Commerces from '../screens/Commerces';
 import { login, register } from '../services/User';
 import Navbar from "../components/Navbar";
+import '../i18next';
 
 const logedBrowser = (user) => {
   return (
     <BrowserRouter>
-      <Navbar  user={user}/>
+      <Navbar user={user}/>
       <Switch>
         <Route exact path="/" component={() => <Home/>} />
         <Route exact path="/products" component={() => <Products/>} />
@@ -32,7 +33,7 @@ const loginBrowser = () => (
 )
 
 export default () => {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState("null");
 
   var auth = React.useMemo(
     () => ({
@@ -58,8 +59,10 @@ export default () => {
 }
 
   return (
-    <AuthContext.Provider value={auth} >
-      {user ? logedBrowser(user) : loginBrowser()}
-    </AuthContext.Provider>
+    <Suspense fallback={(<div>Loading</div>)}>
+      <AuthContext.Provider value={auth} >
+        {user ? logedBrowser(user) : loginBrowser()}
+      </AuthContext.Provider>
+    </Suspense>
   );
 }

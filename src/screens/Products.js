@@ -3,6 +3,7 @@ import NewOrEditProduct from '../components/NewOrEditProduct';
 import ListProduct from '../components/ListProducts';
 import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/Product';
 import {Link, withRouter, useLocation} from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Products = (props) => {
 
@@ -11,6 +12,7 @@ const Products = (props) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const location = useLocation();
     const commerceId = location.commerce_id;
+    const { t } = useTranslation();
 
     console.log(props);
 
@@ -27,7 +29,7 @@ const Products = (props) => {
             "id": id
         }
 
-        addProduct(body).then(() => toggleShowAdd());
+        addProduct(body).then(() => toggleShowAdd()).then(() => loadProducts());
     }
 
     function toggleShowAdd() {
@@ -35,7 +37,7 @@ const Products = (props) => {
     }
 
     function deleteProd(product) {
-        deleteProduct(product.id);
+        deleteProduct(product.id).then(() => loadProducts());
     }
 
     function edit(product) {
@@ -43,15 +45,19 @@ const Products = (props) => {
         toggleShowAdd();
     }
 
-    useEffect(() => {
+    function loadProducts() {
         getProductsByCommerceId(commerceId).then(res => setProducts(res.data));
+    }
+
+    useEffect(() => {
+        loadProducts();
      }, []);
 
     return (        
         <div>
             <div className="row back">
                 <div className="center back">
-                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>Nuevo producto</Link>
+                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('products.new')}</Link>
                 </div>
 
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>

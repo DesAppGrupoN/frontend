@@ -1,11 +1,14 @@
 import React from "react";
 import { withGetScreen } from 'react-getscreen';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Product = (props) => {
 
     const product = props.product;
     const className = props.isMobile() ? "row col s12" : "row col s10 offset-l1";
+    const { t } = useTranslation();
+
     return (
         <div className={className}>
             <div className="card horizontal">
@@ -20,8 +23,8 @@ const Product = (props) => {
                         <p className="col s12">{product.brand}</p>
                     </div>
                     <div className="card-action">
-                        <Link onClick={() => props.onEdit(product)}>Editar</Link>
-                        <Link onClick={() => props.onDelete(product)}>Eliminar</Link>
+                        <Link onClick={() => props.onEdit(product)}>{t('shared.edit')}</Link>
+                        <Link onClick={() => props.onDelete(product)}>{t('shared.delete')}</Link>
                     </div>
                 </div>
             </div>

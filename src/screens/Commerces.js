@@ -3,6 +3,7 @@ import ListCommerces from '../components/ListCommerces';
 import { addCommerce, deleteCommerce, getAllCommerce } from '../services/Commerce';
 import { Link, withRouter, useHistory } from "react-router-dom";
 import NewOrEditCommerce from "../components/NewOrEditCommerce";
+import { useTranslation } from 'react-i18next';
 
 const Commerces = (props) => {
 
@@ -10,6 +11,7 @@ const Commerces = (props) => {
     const [commerces, setCommerces] = useState([]);
     const [selectedCommerce, setSelectedCommerce] = useState(null);
     const history = useHistory();
+    const { t } = useTranslation();
 
     function submitCommerce(name, description, sector, address, image, payMethods, maxDistance, attentionSchedule, id) {
         const body = {
@@ -24,7 +26,7 @@ const Commerces = (props) => {
             "id": id
         }
         
-        addCommerce(body).then(() => toggleShowAdd());
+        addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces());
     }
 
     function toggleShowAdd() {
@@ -33,7 +35,7 @@ const Commerces = (props) => {
 
     function deleteCom(commerce) {
         console.log(commerce);
-        deleteCommerce(commerce.id);
+        deleteCommerce(commerce.id).then(() => loadCommerces());
     }
 
     function edit(commerce) {
@@ -41,15 +43,19 @@ const Commerces = (props) => {
         toggleShowAdd();
     }
 
-    useEffect(() => {
+    function loadCommerces() {
         getAllCommerce().then(res => setCommerces(res.data));
+    }
+
+    useEffect(() => {
+        loadCommerces();
     }, []);
 
     return (
         <div>
             <div className="row back">
                 <div className="center back">
-                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>Nuevo Comercio</Link>
+                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('commerces.new')}</Link>
                 </div>
                 <ListCommerces onEdit={edit} onDelete={deleteCom} commerces={commerces} />
 

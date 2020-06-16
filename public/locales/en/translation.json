@@ -1,0 +1,41 @@
+{
+    "navbar": {
+        "profile": "My profile",
+        "commerces": "My commerces",
+        "logout": "Logout",
+        "language": "Language"
+    },
+    "home": {
+        "title": "What are you looking for today?"
+    },
+    "searchbar": {
+        "placeholder": "Write your search",
+        "search": "Search"
+    },
+    "commerces": {
+        "new": "New commerce"
+    },
+    "products": {
+        "new": "New product"
+    },
+    "shared": {
+        "name": "Name",
+        "description": "Description",
+        "address": "Address",
+        "max_distance": "Maximum shipping distance",
+        "sector_default": "Select a sector",
+        "sector": "Sector",
+        "paymethods": "Pay methods",
+        "image": "Link to the image",
+        "stock": "Stock",
+        "price": "Price",
+        "brand": "Brand",
+        "category": "Category",
+        "category_default": "Choose a category",
+        "accept": "Accept",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "show_prod": "Show products"
+    }
+}

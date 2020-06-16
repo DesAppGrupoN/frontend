@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { useTranslation } from 'react-i18next';
 import '../styles/NewOrEditProduct.css';
 
 const NewOrEditProduct = (props) => {
@@ -14,6 +15,7 @@ const NewOrEditProduct = (props) => {
     const [id, setId] = useState(undefined);
     const [active, setActive] = useState("");
     const product = props.product;
+    const { t } = useTranslation();
 
     useEffect(() => {
         if(product) {
@@ -37,26 +39,26 @@ const NewOrEditProduct = (props) => {
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="name" type="text" class="validate" onChange={(event) => setName(event.target.value)} defaultValue={name}/>
-                            <label className={active} for="name">Nombre</label>
+                            <label className={active} for="name">{t('shared.name')}</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="brand" type="text" class="validate" onChange={(event) => setBrand(event.target.value)} defaultValue={brand}/>
-                            <label className={active} for="brand">Marca</label>
+                            <label className={active} for="brand">{t('shared.brand')}</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="description" type="text" class="validate" onChange={(event) => setDescription(event.target.value)} defaultValue={description}/>
-                            <label className={active} for="description">Descripcion</label>
+                            <label className={active} for="description">{t('shared.description')}</label>
                         </div>
                     </div>
 
 
-                    <label>Categoria</label>
+                    <label>{t('shared.category')}</label>
                     <div class="row">
                         <select class="#f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} defaultValue={category}>
-                            <option value="" disabled={true} selected="">Selecciona una categoria</option>
+                            <option value="" disabled={true} selected="">{t('shared.category_default')}</option>
                             <option value="LIMPIEZA">Limpieza</option>
                             <option value="BEBIDAS">Bebidas</option>
                             <option value="ALIMENTOS">Alimentos</option>
@@ -66,27 +68,27 @@ const NewOrEditProduct = (props) => {
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="price" type="number" class="validate" onChange={(event) => setPrice(event.target.value)} defaultValue={price}/>
-                            <label className={active} for="price">Price</label>
+                            <label className={active} for="price">{t('shared.price')}</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="stock" type="number" class="validate" onChange={(event) => setStock(event.target.value)} defaultValue={stock}/>
-                            <label className={active} for="stock">Stock</label>
+                            <label className={active} for="stock">{t('shared.stock')}</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="image" type="text" class="validate" onChange={(event) => setImage(event.target.value)} defaultValue={image}/>
-                            <label className={active} for="image">Link a imagen</label>
+                            <label className={active} for="image">{t('shared.image')}</label>
                         </div>
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, description, category, price, stock, image, id)}>Aceptar</a>
-                        <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>Cancelar</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, description, category, price, stock, image, id)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
                     </div>
 
                 </form>

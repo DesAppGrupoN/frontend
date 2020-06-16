@@ -1,0 +1,41 @@
+{
+    "navbar" : {        
+        "profile": "Mi perfil",
+        "commerces": "Mis comercios",
+        "logout": "Cerrar sesion",
+        "language": "Idioma"
+    },
+    "home": {
+        "title": "¿Que quieres buscar hoy?"
+    },
+    "searchbar": {
+        "placeholder": "Escribe tu búsqueda",
+        "search": "Buscar"
+    },
+    "commerces": {
+        "new": "Nuevo comercio"
+    },
+    "products": {
+        "new": "Nuevo producto"
+    },
+    "shared": {
+        "name": "Nombre",
+        "description": "Descripcion",
+        "address": "Direccion",
+        "max_distance": "Distancia máxima de envío",
+        "sector_default": "Selecciona un sector",
+        "sector": "Sector",
+        "paymethods": "Metodos de pago",
+        "image": "Link a la imagen",
+        "stock": "Stock",
+        "price": "Precio",
+        "brand": "Marca",
+        "category": "Categoria",
+        "category_default": "Selecciona una categoria",
+        "accept": "Aceptar",
+        "cancel": "Cancelar",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "show_prod": "Ver productos"
+    }
+}
