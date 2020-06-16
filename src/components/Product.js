@@ -10,12 +10,12 @@ const Product = (props) => {
         <div className={className}>
             <div className="card horizontal">
                 <div className="card-image">
-                    <img src={product.image} style={{  "height": "200px", "width": "200px"}} />
+                    <img src={product.image} style={{  "height": "200px", "width": "auto"}} />
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5 className="col s12 m4 l10">{product.name}</h5>
-                        <h5 className="col s12 m4 l2">${product.price}</h5>
+                        <h5 className="col s12 m4 l9">{product.name}</h5>
+                        <h5 className="col s12 m4 l3">${product.price}</h5>
                         <h6 className="col s12">{product.name}</h6>
                         <p className="col s12">{product.brand}</p>
                     </div>

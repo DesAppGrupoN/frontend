@@ -6,15 +6,15 @@ const Commerce = (props) => {
     const commerce = props.commerce;
     const className = props.isMobile() ? "row col s12" : "row col s10 offset-l1";
     return (
-        <div className={className}>
-            <div className="card horizontal">
+        <div className={className} >
+            <div className="card horizontal" style={{ "height": "350px", "width": "auto" }}>
                 <div className="card-image">
-                    <img src={commerce.image} style={{ "height": "200px", "width": "200px" }} />
+                    <img src={commerce.image} style={{ "height": "200px", "width": "auto" }} />
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5 className="col s12 m4 l10">{commerce.name}</h5>
-                        <p className="col s12 m4 l2">{commerce.sector}</p>
+                        <h5 className="col s12 m4 l9">{commerce.name}</h5>
+                        <p className="col s12 m4 l3 ">{commerce.sector}</p>
                         <h6 className="col s12">{commerce.description}</h6>
                         <h6 className="col s12">{commerce.address}</h6>
                     </div>
