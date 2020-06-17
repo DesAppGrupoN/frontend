@@ -1,3 +1,27 @@
+﻿---------------------------------------------------------------------
+TAG ENTREGA 1
+---------------------------------------------------------------------
+NEW FEATURES (lo que están entregando y está funcionando):
+* Crear Usuario
+* Crear Perfil Comercio
+* Consultar horarios Comercio
+* Crear Producto
+* Crear lista de Compra
+* Calcular precio lista de Compra
+* Configurar alerta notificación
+* Historial de compras
+* Elegir Tipo de envío.
+* Gestionar Turno
+* Crear Umbrales
+* Crear Ofertas (Producto, Par producto)
+
+NOTES
+* Productos que quizás le interese. (Nos tendríamos que basar en los productos que más se repiten en su historial de compra pero en qué campo de Producto nos basamos. (Estos tienen que ser por nombre? Categoría? Comercio?).
+
+KNOWN ISSUES:
+
+* Ofertas por Categoria? Pensamos que podria ser un metodo en el commerce el cual recorra los productos que correspondan a la categoria pasada como parametro de entrada y a estos le aplique la Oferta de Producto simple.
+
 ---------------------------------------------------------------------
 TAG ENTREGA 2
 ---------------------------------------------------------------------
@@ -7,9 +31,7 @@ NEW FEATURES (lo que están entregando y está funcionando):
 * ABM de usuarios, productos y comercios
 * I18n en español e ingles
 
-
 NOTES
-
 
 KNOWN ISSUES:
 
