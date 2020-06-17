@@ -1,0 +1,18 @@
+---------------------------------------------------------------------
+TAG ENTREGA 2
+---------------------------------------------------------------------
+NEW FEATURES (lo que están entregando y está funcionando):
+* Home SPA
+* Login y register
+* ABM de usuarios, productos y comercios
+* I18n en español e ingles
+
+
+NOTES
+
+
+KNOWN ISSUES:
+
+* Al agregar un producto no se esta enviando el id del comercio.
+* Algunos errores al listar los productos.
+* Falta feedback en el register y en el login.
