@@ -8,6 +8,7 @@ import ListCommercesSearch from "../components/ListCommercesSearch";
 
 const Search = (props) => {
     
+    const { t } = useTranslation();
     const location = useLocation();
     const [searchFor, setSearchFor] = useState(location.search.substr(1));
     const [result, setResult] = useState([]);
@@ -25,7 +26,7 @@ const Search = (props) => {
     return (
         <div className="container">
             <SearchBar onSubmit={update}/>
-            <h5 className="center">Mostrando resultados de: {searchFor}</h5>
+            <h5 className="center">{t('searchbar.results')}: {searchFor}</h5>
             <div className="divider"></div>
             <ListCommercesSearch commerces={result}/>
         </div>

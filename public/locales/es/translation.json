@@ -10,7 +10,8 @@
     },
     "searchbar": {
         "placeholder": "Escribe tu búsqueda",
-        "search": "Buscar"
+        "search": "Buscar",
+        "results": "Mostrando resultados para"
     },
     "commerces": {
         "new": "Nuevo comercio"

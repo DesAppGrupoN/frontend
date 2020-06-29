@@ -10,7 +10,8 @@
     },
     "searchbar": {
         "placeholder": "Write your search",
-        "search": "Search"
+        "search": "Search",
+        "results": "Showing results for"
     },
     "commerces": {
         "new": "New commerce"
