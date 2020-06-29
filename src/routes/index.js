@@ -6,8 +6,9 @@ import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Products from '../screens/Products';
 import Commerces from '../screens/Commerces';
-import { login, register } from '../services/User';
+import Search from "../screens/Search";
 import Navbar from "../components/Navbar";
+import { login, register } from '../services/User';
 import '../i18next';
 
 const logedBrowser = (user) => {
@@ -18,6 +19,7 @@ const logedBrowser = (user) => {
         <Route exact path="/" component={() => <Home/>} />
         <Route exact path="/products" component={() => <Products/>} />
         <Route exact path="/commerces" component={() => <Commerces/>} />
+        <Route exact path="/search" component={() => <Search/>} />
       </Switch>
     </BrowserRouter>
   )
@@ -33,7 +35,7 @@ const loginBrowser = () => (
 )
 
 export default () => {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState("null");
 
   var auth = React.useMemo(
     () => ({

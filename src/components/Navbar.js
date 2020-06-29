@@ -16,7 +16,7 @@ const Navbar = (props) => {
 
   return (
     <div>
-      <ul id="languaje_sel" class="dropdown-content">
+      <ul id="languaje_sel" className="dropdown-content">
         <li><a onClick={() => i18next.changeLanguage("es")}>Español</a></li>
         <li><a onClick={() => i18next.changeLanguage("en")}>English</a></li>
       </ul>
@@ -26,7 +26,7 @@ const Navbar = (props) => {
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to="/commerces">{t('navbar.commerces')}</Link></li>
             <li><Link to="/profile">{t('navbar.profile')}</Link></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="languaje_sel">{t('navbar.language')}</a></li>
+            <li><a className="dropdown-trigger" href="#!" data-target="languaje_sel">{t('navbar.language')}</a></li>
             <li><Link onClick={logout} to="/">{t('navbar.logout')}</Link></li>
           </ul>
         </div>
