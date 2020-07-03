@@ -20,7 +20,11 @@ const NewOrEditCommerce = (props) => {
     const [active, setActive] = useState("");
     const commerce = props.commerce;
     const { t } = useTranslation();
-
+    const [openingTime, setOpeningTime] = useState();
+    const [closingTime,setClosingTime ] = useState();
+    const days=[{value:'MONDAY', label:'Lunes'}, {value:'TUESDAY', label:'Martes'}, {value:'WEDNESDAY', label:'Miercoles'},
+    {value:'THURSDAY',label:'Jueves'}, {value:'FRIDAY', label:'Viernes'}, {value:'SATURDAY', label:'Sabado'}, {value:'SUNDAY', label:'Domingo'}];   
+    const [openingDays,setDay] = useState();
     useEffect(() => {
         if (commerce) {
             setName(commerce.name);
@@ -32,6 +36,7 @@ const NewOrEditCommerce = (props) => {
             setMaxDistance(commerce.maxDistance)
             setAttentionSchedule(commerce.attentionSchedule)
             setId(commerce.id);
+            
             setActive("active");
         }
         getCommerceSectors().then(res => setSectors(res.data)).then(() => M.AutoInit());
@@ -89,12 +94,32 @@ const NewOrEditCommerce = (props) => {
                             <label className={active} for="image">{t('shared.image')}</label>
                         </div>
                     </div>
-
-                    <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, attentionSchedule, id)}>{t('shared.accept')}</a>
-                        <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
+                    <div classNane= "Dias de atencion">
+                        {days.map(day => 
+                        <div className="checkbox">
+                            <label>
+                            <input type="checkbox" value={day.value}onChange={(event) => (setDay(event.target.value))}/>
+                            <span>{day.label}</span>
+                            </label>
+                            </div>)
+                        }
+                    </div>
+                    <div className="Horarios de atencion">
+                        <label>
+                            Horario de atención
+                            </label>
+                        <div className="horarios">
+                            <div className="seleccion-horario">
+                                <input type="time" name="horariocomienzo"  onChange={(event) => setOpeningTime(event.target.value)}/> a
+                                <input type="time" name="horariofin" onChange={(event) => setClosingTime(event.target.value)}/>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="center">
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, attentionSchedule, id),console.log(openingDays)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
+                    </div>
                 </form>
             </div>
         </div>
