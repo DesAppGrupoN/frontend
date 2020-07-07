@@ -24,7 +24,7 @@ const NewOrEditCommerce = (props) => {
     const [closingTime,setClosingTime ] = useState();
     const days=[{value:'MONDAY', label:'Lunes'}, {value:'TUESDAY', label:'Martes'}, {value:'WEDNESDAY', label:'Miercoles'},
     {value:'THURSDAY',label:'Jueves'}, {value:'FRIDAY', label:'Viernes'}, {value:'SATURDAY', label:'Sabado'}, {value:'SUNDAY', label:'Domingo'}];   
-    const [openingDays,setDay] = useState();
+    const [openingDays,setDay] = useState([]);
     useEffect(() => {
         if (commerce) {
             setName(commerce.name);
@@ -98,7 +98,7 @@ const NewOrEditCommerce = (props) => {
                         {days.map(day => 
                         <div className="checkbox">
                             <label>
-                            <input type="checkbox" value={day.value}onChange={(event) => (setDay(event.target.value))}/>
+                            <input type="checkbox" value={day.value}onChange={(event) => { setDay([...openingDays, event.target.value]);console.log(openingDays)}}/>
                             <span>{day.label}</span>
                             </label>
                             </div>)
