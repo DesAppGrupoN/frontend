@@ -1,23 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../styles/Login.css';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
 import Error from '../components/Error';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = (props) => {
 
-  const { login } = React.useContext(AuthContext);
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState('');
-
-  function handleSubmit() {
-    const body = {
-      "username": username, 
-      "password": password
-    }
-    login(body, setError)
-  }
+  const { loginWithRedirect, error } = useAuth0();
 
   return (
     <div className='lr-container'>
@@ -26,10 +14,7 @@ const Login = (props) => {
         <div className="login-form">
             <h1>Bienvenido a Comprando en Casa</h1>
             <Error error={error}/>
-            <input type="text" placeholder="Usuario" required onChange={(event) => setUsername(event.target.value)} />
-            <input type="password" placeholder="Contraseña" required onChange={(event) => setPassword(event.target.value)} />
-            <input type="submit" value="Iniciar sesion" onClick={() => handleSubmit()}/>
-            <p className='bottom-text'>¿No tienes cuenta? ¡<Link className='link' to="/register">Registrate</Link>!</p>
+            <input type="submit" value="Iniciar sesion" onClick={loginWithRedirect}/>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ListCommerces from '../components/ListCommerces';
-import { addCommerce, deleteCommerce, getAllCommerce } from '../services/Commerce';
+import { addCommerce, deleteCommerce } from '../services/Commerce';
+import { getUserCommerces } from '../services/User';
 import { Link, withRouter, useHistory } from "react-router-dom";
 import NewOrEditCommerce from "../components/NewOrEditCommerce";
 import { useTranslation } from 'react-i18next';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Commerces = (props) => {
 
@@ -12,6 +14,7 @@ const Commerces = (props) => {
     const [selectedCommerce, setSelectedCommerce] = useState(null);
     const history = useHistory();
     const { t } = useTranslation();
+    const { user } = useAuth0();
 
     function submitCommerce(name, description, sector, address, image, payMethods, maxDistance, attentionSchedule, id) {
         const body = {
@@ -44,7 +47,7 @@ const Commerces = (props) => {
     }
 
     function loadCommerces() {
-        getAllCommerce().then(res => setCommerces(res.data));
+        //getUserCommerces(user.email).then(res => setCommerces(res.data));
     }
 
     useEffect(() => {

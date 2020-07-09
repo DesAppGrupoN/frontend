@@ -37,6 +37,10 @@
         "cancel": "Cancel",
         "edit": "Edit",
         "delete": "Delete",
-        "show_prod": "Show products"
+        "show_prod": "Show products",
+        "opening_days": "Opening days",
+        "opening_time": "Attention hours",
+        "from_time": "From",
+        "to_time": "To"
     }
 }
