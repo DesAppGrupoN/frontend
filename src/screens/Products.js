@@ -14,8 +14,6 @@ const Products = (props) => {
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
 
-    console.log(props);
-
     function submitProduct(name, brand, description, category, price, stock, image, id) {
         const body = {
             "commerceId": commerceId,

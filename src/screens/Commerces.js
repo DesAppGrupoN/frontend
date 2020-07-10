@@ -26,8 +26,11 @@ const Commerces = (props) => {
             "payMethods": payMethods,
             "maxDistance": maxDistance,
             "attentionSchedule": attentionSchedule,
-            "id": id
+            "id": id,
+            "userEmail": user.email
         }
+
+        console.log("BODY: ", body);
         
         addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces());
     }
@@ -37,8 +40,11 @@ const Commerces = (props) => {
     }
 
     function deleteCom(commerce) {
-        console.log(commerce);
-        deleteCommerce(commerce.id).then(() => loadCommerces());
+        const body = {
+            "id": commerce.id,
+            "userEmail": user.email
+        }
+        deleteCommerce(body).then(() => loadCommerces());
     }
 
     function edit(commerce) {
@@ -47,7 +53,7 @@ const Commerces = (props) => {
     }
 
     function loadCommerces() {
-        //getUserCommerces(user.email).then(res => setCommerces(res.data));
+        getUserCommerces(user.email).then(res => setCommerces(res.data));
     }
 
     useEffect(() => {

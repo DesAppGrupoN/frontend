@@ -115,7 +115,7 @@ const NewOrEditCommerce = (props) => {
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, attentionSchedule, id), console.log(openingDays)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, attentionSchedule, id)}>{t('shared.accept')}</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
                     </div>
                 </form>

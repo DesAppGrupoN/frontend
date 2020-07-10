@@ -24,7 +24,7 @@ const CommerceSearch = (props) => {
                         <h6 className="col s12">{commerce.address}</h6>
                     </div>
                     <div className="card-action right-align">
-                        <Link to={{pathname: "/products", commerce_id: commerce.id}}>{t('shared.show_prod')}</Link>
+                        <Link to={{pathname: "/search_prod", commerce: commerce}}>{t('shared.show_prod')}</Link>
                     </div>
                 </div>
             </div>

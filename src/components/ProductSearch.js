@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { withGetScreen } from 'react-getscreen';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const ProductSearch = (props) => {
 
+    const [productAmount, setProductAmount] = useState(0);
     const product = props.product;
     const className = props.isMobile() ? "row col s12" : "row col s10 offset-l1";
     const { t } = useTranslation();
@@ -13,7 +14,7 @@ const ProductSearch = (props) => {
         <div className={className}>
             <div className="card horizontal">
                 <div className="card-image">
-                    <img src={product.image} style={{  "height": "200px", "width": "auto"}} />
+                    <img src={product.image} style={{ "height": "200px", "width": "auto" }} />
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
@@ -22,9 +23,10 @@ const ProductSearch = (props) => {
                         <h6 className="col s12">{product.name}</h6>
                         <p className="col s12">{product.brand}</p>
                     </div>
-                    <div className="card-action">
-                        <Link onClick={() => props.onEdit(product)}>{t('shared.edit')}</Link>
-                        <Link onClick={() => props.onDelete(product)}>{t('shared.delete')}</Link>
+                    <div className="card-action right-align valign-wrapper">
+                        <input type="number" min="0" max={product.stock} class="input-field col s1 validate" onChange={(event) => setProductAmount(event.target.value)} defaultValue={productAmount} />
+                        <p>&nbsp; &nbsp; &nbsp;</p>
+                        <Link onClick={() => props.onAdd(product)}>{t('shared.add_to_shopping_cart')}</Link>
                     </div>
                 </div>
             </div>

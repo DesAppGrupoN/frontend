@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Products from '../screens/Products';
 import Commerces from '../screens/Commerces';
 import Search from "../screens/Search";
+import SearchProducts from '../screens/SearchProducts';
 import Navbar from "../components/Navbar";
 import { login, register } from '../services/User';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -19,6 +20,7 @@ const logedBrowser = () => {
         <Route exact path="/products" component={() => <Products/>} />
         <Route exact path="/commerces" component={() => <Commerces/>} />
         <Route exact path="/search" component={() => <Search/>} />
+        <Route exact path="/search_prod" component={() => <SearchProducts/>} />
       </Switch>
     </BrowserRouter>
   )
@@ -38,7 +40,7 @@ export default () => {
 
   return (
     <Suspense fallback={(<div>Loading</div>)}>
-        {true ? logedBrowser() : loginBrowser()}
+        {isAuthenticated ? logedBrowser() : loginBrowser()}
     </Suspense>
   );
 }

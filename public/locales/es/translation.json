@@ -41,6 +41,7 @@
         "opening_days": "Dias de atencion",
         "opening_time": "Horarios de atencion",
         "from_time": "Desde",
-        "to_time": "Hasta"
+        "to_time": "Hasta",
+        "add_to_shopping_cart": "Agregar al carrito"
     }
 }
