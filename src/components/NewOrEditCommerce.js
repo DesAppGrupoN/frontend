@@ -15,17 +15,17 @@ const NewOrEditCommerce = (props) => {
     const [payMethodsSelected, setPaymethodsSelected] = useState();
     const [payMethods, setPaymethods] = useState([]);
     const [maxDistance, setMaxDistance] = useState();
-    const [attentionSchedule, setAttentionSchedule] = useState(undefined);
     const [id, setId] = useState(undefined);
     const [active, setActive] = useState("");
     const commerce = props.commerce;
     const { t } = useTranslation();
-    const [openingTime, setOpeningTime] = useState();
-    const [closingTime, setClosingTime] = useState();
     const days = [{ value: 'MONDAY', label: 'Lunes' }, { value: 'TUESDAY', label: 'Martes' }, { value: 'WEDNESDAY', label: 'Miercoles' },
     { value: 'THURSDAY', label: 'Jueves' }, { value: 'FRIDAY', label: 'Viernes' }, { value: 'SATURDAY', label: 'Sabado' }, { value: 'SUNDAY', label: 'Domingo' }];
-    const [openingDays, setDay] = useState([]);
+
+    const [attentionSchedule,setAttentionSchedule] = useState({});
+    
     useEffect(() => {
+       
         if (commerce) {
             setName(commerce.name);
             setDescription(commerce.description);
@@ -34,10 +34,10 @@ const NewOrEditCommerce = (props) => {
             setImage(commerce.image);
             setPaymethodsSelected(commerce.payMethods)
             setMaxDistance(commerce.maxDistance)
-            setAttentionSchedule(commerce.attentionSchedule)
             setId(commerce.id);
-
             setActive("active");
+            setAttentionSchedule(commerce.attentionSchedule);
+            console.log(attentionSchedule);
         }
         getCommerceSectors().then(res => setSectors(res.data)).then(() => M.AutoInit());
         getCommercePaymethods().then(res => setPaymethods(res.data)).then(() => M.AutoInit());
@@ -96,7 +96,7 @@ const NewOrEditCommerce = (props) => {
 
                     <label>{t('shared.opening_days')}</label>
                     <div classNane="row">
-                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setDay(Array.from(event.target.selectedOptions).map(o => o.value))} defaultValue={payMethodsSelected}>
+                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setAttentionSchedule(Array.from(event.target.selectedOptions).map(o => o.value))}value={attentionSchedule.days} >
                             {days.map(day => <option value={day.value}>{day.label}</option>)}
                         </select>
                     </div>
@@ -105,12 +105,12 @@ const NewOrEditCommerce = (props) => {
                     <div className="col s12">
                         <div class="input-field col s6">
                             <p>{t('shared.from_time')}</p>
-                            <input type="time" name="horariocomienzo" onChange={(event) => setOpeningTime(event.target.value)} />
+                            <input type="time" name="horariocomienzo" onChange={(event) => setAttentionSchedule(event.target.value) }value={attentionSchedule.openingTime} /> 
                         </div>
 
                         <div class="input-field col s6">
                             <p>{t('shared.to_time')}</p>
-                            <input type="time" name="horariofin" onChange={(event) => setClosingTime(event.target.value)} />
+                            <input type="time" name="horariofin" onChange={(event) => setAttentionSchedule(event.target.value)} value={attentionSchedule.closingTime}/>
                         </div>
                     </div>
 

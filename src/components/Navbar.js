@@ -8,19 +8,18 @@ import ReactFileReader from 'react-file-reader';
 import { addProducts } from "../services/Product";
 
 const Navbar = (props) => {  
+  
   const handleFile = (event) => {
     const content = event.target.result;
-    console.log( content);
+    console.log( typeof(content));
     addProducts(content);
   }
-
   const handleChangeFile = (file) => {
     const fileData = new FileReader();
     fileData.readAsText(file);
     fileData.onloadend = handleFile;  
   }
  
-
   const { t } = useTranslation();
   const { logout } = useAuth0();
   useEffect(() => {
