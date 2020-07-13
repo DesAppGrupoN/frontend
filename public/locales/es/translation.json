@@ -43,5 +43,8 @@
         "from_time": "Desde",
         "to_time": "Hasta",
         "add_to_shopping_cart": "Agregar al carrito"
+    },
+    "snackbar": {
+        "added_product": "Producto agregado"
     }
 }

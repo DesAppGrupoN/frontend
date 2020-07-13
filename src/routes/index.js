@@ -7,7 +7,7 @@ import Commerces from '../screens/Commerces';
 import Search from "../screens/Search";
 import SearchProducts from '../screens/SearchProducts';
 import Navbar from "../components/Navbar";
-import { login, register } from '../services/User';
+import SnackBar from '../components/SnackBar';
 import { useAuth0 } from "@auth0/auth0-react";
 import '../i18next';
 
@@ -22,6 +22,7 @@ const logedBrowser = () => {
         <Route exact path="/search" component={() => <Search/>} />
         <Route exact path="/search_prod" component={() => <SearchProducts/>} />
       </Switch>
+      <SnackBar/>
     </BrowserRouter>
   )
 }

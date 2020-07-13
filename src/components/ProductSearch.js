@@ -24,9 +24,7 @@ const ProductSearch = (props) => {
                         <p className="col s12">{product.brand}</p>
                     </div>
                     <div className="card-action right-align valign-wrapper">
-                        <input type="number" min="0" max={product.stock} class="input-field col s1 validate" onChange={(event) => setProductAmount(event.target.value)} defaultValue={productAmount} />
-                        <p>&nbsp; &nbsp; &nbsp;</p>
-                        <Link onClick={() => props.onAdd(product)}>{t('shared.add_to_shopping_cart')}</Link>
+                        <Link className="col s6" onClick={() => props.onAdd()}>{t('shared.add_to_shopping_cart')}</Link>
                     </div>
                 </div>
             </div>

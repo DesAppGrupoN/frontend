@@ -17,7 +17,7 @@ const ListProductsSearch = (props) => {
             {list.map(product => {
                 return (
                     <div className={"col s" + cols}>
-                        <ProductSearch onEdit={props.onEdit} onDelete={props.onDelete} key={product.id} product={product}/>
+                        <ProductSearch onAdd={props.onAdd} key={product.id} product={product}/>
                     </div>
                 );
             })}

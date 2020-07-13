@@ -43,5 +43,8 @@
         "from_time": "From",
         "to_time": "To",
         "add_to_shopping_cart": "Add to shopping cart"
+    },
+    "snackbar": {
+        "added_product": "Added product"
     }
 }
