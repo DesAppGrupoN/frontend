@@ -4,22 +4,9 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useAuth0 } from "@auth0/auth0-react";
-import ReactFileReader from 'react-file-reader';
-import { addProducts } from "../services/Product";
 
 const Navbar = (props) => {  
-  
-  const handleFile = (event) => {
-    const content = event.target.result;
-    console.log( typeof(content));
-    addProducts(content);
-  }
-  const handleChangeFile = (file) => {
-    const fileData = new FileReader();
-    fileData.readAsText(file);
-    fileData.onloadend = handleFile;  
-  }
- 
+
   const { t } = useTranslation();
   const { logout } = useAuth0();
   useEffect(() => {
@@ -40,10 +27,6 @@ const Navbar = (props) => {
             <li><Link to="/profile">{t('navbar.profile')}</Link></li>
             <li><a className="dropdown-trigger" href="#!" data-target="languaje_sel">{t('navbar.language')}</a></li>
             <li><Link onClick={() => logout({ returnTo: window.location.origin })} to="/">{t('navbar.logout')}</Link></li>
-            
-            <input type="file" accept=".csv" onChange={e => 
-            handleChangeFile(e.target.files[0])} /> 
-            
           </ul>
           <div className="files">
          
