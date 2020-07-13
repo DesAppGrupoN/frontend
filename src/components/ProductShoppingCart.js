@@ -3,14 +3,13 @@ import { withGetScreen } from 'react-getscreen';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-const ProductSearch = (props) => {
+const ProductShoppingCart = (props) => {
 
     const product = props.product;
-    const className = props.isMobile() ? "row col s12" : "row col s10 offset-l1";
     const { t } = useTranslation();
 
     return (
-        <div className={className}>
+        <div className={"row"}>
             <div className="card horizontal">
                 <div className="card-image">
                     <img src={product.image} style={{ "height": "200px", "width": "auto" }} />
@@ -23,7 +22,7 @@ const ProductSearch = (props) => {
                         <p className="col s12">{product.brand}</p>
                     </div>
                     <div className="card-action right-align valign-wrapper">
-                        <Link className="col s6" onClick={() => props.onAdd(product)}>{t('shared.add_to_shopping_cart')}</Link>
+                        <Link className="col s6" onClick={() => props.onAdd(product)}>{t('shared.remove')}</Link>
                     </div>
                 </div>
             </div>
@@ -31,4 +30,4 @@ const ProductSearch = (props) => {
     )
 }
 
-export default withGetScreen(ProductSearch);
+export default ProductShoppingCart;

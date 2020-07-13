@@ -23,6 +23,7 @@ const Navbar = (props) => {
         <div className="nav-wrapper">
           <Link to="/" className="brand-logo">Comprando en casa</Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><Link to="/cart">{t('navbar.cart')}</Link></li>
             <li><Link to="/commerces">{t('navbar.commerces')}</Link></li>
             <li><Link to="/profile">{t('navbar.profile')}</Link></li>
             <li><a className="dropdown-trigger" href="#!" data-target="languaje_sel">{t('navbar.language')}</a></li>
