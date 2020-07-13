@@ -4,6 +4,7 @@ import ListProduct from '../components/ListProducts';
 import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/Product';
 import {Link, withRouter, useLocation} from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { addProducts } from "../services/Product";
 
 const Products = (props) => {
 
@@ -13,7 +14,10 @@ const Products = (props) => {
     const location = useLocation();
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
-
+    const handleChangeFile = (file) => {
+        addProducts(file);  
+      }
+         
     function submitProduct(name, brand, description, category, price, stock, image, id) {
         const body = {
             "commerceId": commerceId,
@@ -59,7 +63,9 @@ const Products = (props) => {
                 </div>
 
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>
-                
+          
+                <input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} /> 
+                            
                 
             </div>
             {showAdd ?
