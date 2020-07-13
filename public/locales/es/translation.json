@@ -3,7 +3,8 @@
         "profile": "Mi perfil",
         "commerces": "Mis comercios",
         "logout": "Cerrar sesion",
-        "language": "Idioma"
+        "language": "Idioma",
+        "cart": "Mi carrito"
     },
     "home": {
         "title": "¿Que quieres buscar hoy?"
@@ -37,14 +38,21 @@
         "cancel": "Cancelar",
         "edit": "Editar",
         "delete": "Eliminar",
+        "remove": "Quitar",
         "show_prod": "Ver productos",
         "opening_days": "Dias de atencion",
         "opening_time": "Horarios de atencion",
         "from_time": "Desde",
         "to_time": "Hasta",
-        "add_to_shopping_cart": "Agregar al carrito"
+        "add_to_shopping_cart": "Agregar al carrito",
+        "total": "Total"
     },
     "snackbar": {
-        "added_product": "Producto agregado"
+        "general": "Algo salio mal",
+        "added_product": "Producto agregado",
+        "failed_add_product": "Hubo un problema al agregar el producto. Intentelo nuevamente."
+    },
+    "purchase": {
+        "confirm": "Comprar"
     }
 }
