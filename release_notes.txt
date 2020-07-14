@@ -1,4 +1,4 @@
----------------------------------------------------------------------
+﻿---------------------------------------------------------------------
 TAG ENTREGA 1
 ---------------------------------------------------------------------
 NEW FEATURES:
@@ -51,12 +51,14 @@ NEW FEATURES:
 * Perfil del usuario
 * Test de arquitectura
 * Logs
+* Envio de emails
 
 NOTES
 * Concern de compras
 * Historial de compras
+* Formatters de fecha, $ (moneda) y # (números) según LOCALE
 
 
 KNOWN ISSUES:
 
-* 
+* Navbar no del todo responsive
