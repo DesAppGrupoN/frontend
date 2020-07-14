@@ -23,7 +23,10 @@ const Products = (props) => {
 
     function handleChangeFile(file) {
         addProducts(file,commerceId)
-            .then(() => showSuccessfullySnackbar(t('snackbar.added_batch_products')))
+            .then(() => {
+                showSuccessfullySnackbar(t('snackbar.added_batch_products'));
+                loadProducts();
+            })
             .catch(() => showFailedSnackbar(t('snackbar.failed_add_batch_products')));  
       }
          
