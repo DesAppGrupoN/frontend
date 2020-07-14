@@ -3,7 +3,8 @@
         "profile": "My profile",
         "commerces": "My commerces",
         "logout": "Logout",
-        "language": "Language"
+        "language": "Language",
+        "cart": "My cart"
     },
     "home": {
         "title": "What are you looking for today?"
@@ -37,14 +38,26 @@
         "cancel": "Cancel",
         "edit": "Edit",
         "delete": "Delete",
+        "remove": "Remove",
         "show_prod": "Show products",
         "opening_days": "Opening days",
         "opening_time": "Attention hours",
         "from_time": "From",
         "to_time": "To",
-        "add_to_shopping_cart": "Add to shopping cart"
+        "add_to_shopping_cart": "Add to shopping cart",
+        "total": "Total"
     },
     "snackbar": {
-        "added_product": "Added product"
+        "general_error": "Something went wrong",
+        "added_product": "Added product",
+        "failed_add_product": "There was a problem adding the product. Try again.",
+        "added_batch_products": "Products created successfully.",
+        "failed_add_batch_products": "There was a problem creating the products."
+    },
+    "purchase": {
+        "confirm": "Purchase"
+    },
+    "csv": {
+        "input" : "Create from csv file"
     }
 }

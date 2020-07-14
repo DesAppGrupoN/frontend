@@ -5,6 +5,7 @@ import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/
 import {Link, withRouter, useLocation} from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { addProducts } from "../services/Product";
+import { showSuccessfullySnackbar, showFailedSnackbar } from '../components/SnackBar';
 
 const Products = (props) => {
 
@@ -14,8 +15,19 @@ const Products = (props) => {
     const location = useLocation();
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
-    const handleChangeFile = (file) => {
-        addProducts(file);  
+
+    useEffect(() => {
+        loadProducts();
+     }, []);
+    
+
+    function handleChangeFile(file) {
+        addProducts(file,commerceId)
+            .then(() => {
+                showSuccessfullySnackbar(t('snackbar.added_batch_products'));
+                loadProducts();
+            })
+            .catch(() => showFailedSnackbar(t('snackbar.failed_add_batch_products')));  
       }
          
     function submitProduct(name, brand, description, category, price, stock, image, id) {
@@ -51,22 +63,24 @@ const Products = (props) => {
         getProductsByCommerceId(commerceId).then(res => setProducts(res.data));
     }
 
-    useEffect(() => {
-        loadProducts();
-     }, []);
-
     return (        
         <div>
-            <div className="row back">
-                <div className="center back">
-                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('products.new')}</Link>
-                </div>
-
+            <div className="container back">
+                <ul className="center">
+                        <li>
+                            <a class="waves-effect waves-light btn-large" onClick={toggleShowAdd}>
+                                {t('products.new')}
+                            </a>
+                        </li>
+                        <li>
+                            <div class = "file-field input-field waves-effect waves-light btn-large">
+                                <span>{t('csv.input')}</span>
+                                <input type = "file" onChange={e => handleChangeFile(e.target.files[0])}/>
+                            </div>
+                        </li>
+                </ul>               
+                 
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>
-          
-                <input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} /> 
-                            
-                
             </div>
             {showAdd ?
                 <div className="front"> <NewOrEditProduct product={selectedProduct} onAccept={submitProduct} onCancel={() => setShowAdd(false)}/> </div>
@@ -78,3 +92,4 @@ const Products = (props) => {
 }
 
 export default withRouter(Products);
+                                       
