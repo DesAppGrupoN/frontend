@@ -15,7 +15,7 @@ const Products = (props) => {
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
     const handleChangeFile = (file) => {
-        addProducts(file);  
+        addProducts(file,commerceId);  
       }
          
     function submitProduct(name, brand, description, category, price, stock, image, id) {
