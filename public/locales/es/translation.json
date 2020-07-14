@@ -58,6 +58,6 @@
         "confirm": "Comprar"
     },
     "csv":{
-        "input" : "Agregar batchProductos .csv"
+        "input" : "Cargar desde archivo csv"
     }
 }

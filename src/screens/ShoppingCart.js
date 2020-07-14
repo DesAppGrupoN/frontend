@@ -23,7 +23,7 @@ const ShoppingCart = (props) => {
                 setTotal(res.data.totalPrice);
                 setList(res.data.cart);
             })
-            .catch(() => showFailedSnackbar(t('snackbar.general')));
+            .catch(() => showFailedSnackbar(t('snackbar.general_error')));
     }
 
     function removeProduct(product) {

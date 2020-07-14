@@ -15,11 +15,16 @@ const Products = (props) => {
     const location = useLocation();
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
-    const handleChangeFile = (file) => {
-        addProducts(file,commerceId).then(function(response) {
-            showSuccessfullySnackbar(t('snackbar.added_batchProducts') + response.data);
-          }).catch(function(error) {
-            showFailedSnackbar(t('failed_add_batchProducts') + error.data)});  
+
+    useEffect(() => {
+        loadProducts();
+     }, []);
+    
+
+    function handleChangeFile(file) {
+        addProducts(file,commerceId)
+            .then(() => showSuccessfullySnackbar(t('snackbar.added_batch_products')))
+            .catch(() => showFailedSnackbar(t('snackbar.failed_add_batch_products')));  
       }
          
     function submitProduct(name, brand, description, category, price, stock, image, id) {
@@ -55,20 +60,23 @@ const Products = (props) => {
         getProductsByCommerceId(commerceId).then(res => setProducts(res.data));
     }
 
-    useEffect(() => {
-        loadProducts();
-     }, []);
-
     return (        
         <div>
-            <div className="row back">
-                <div className="center back">
-                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('products.new')}</Link>
-                </div>
-                <div>
-                    {t('csv.input')}
-                    <input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} />
-                </div>             
+            <div className="container back">
+                <ul className="center">
+                        <li>
+                            <a class="waves-effect waves-light btn-large" onClick={toggleShowAdd}>
+                                {t('products.new')}
+                            </a>
+                        </li>
+                        <li>
+                            <div class = "file-field input-field waves-effect waves-light btn-large">
+                                <span>{t('csv.input')}</span>
+                                <input type = "file" onChange={e => handleChangeFile(e.target.files[0])}/>
+                            </div>
+                        </li>
+                </ul>               
+                 
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>
             </div>
             {showAdd ?
@@ -81,3 +89,4 @@ const Products = (props) => {
 }
 
 export default withRouter(Products);
+                                       
