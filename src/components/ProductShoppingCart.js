@@ -22,7 +22,7 @@ const ProductShoppingCart = (props) => {
                         <p className="col s12">{product.brand}</p>
                     </div>
                     <div className="card-action right-align valign-wrapper">
-                        <Link className="col s6" onClick={() => props.onAdd(product)}>{t('shared.remove')}</Link>
+                        <Link className="col s6" onClick={() => props.onRemove(product)}>{t('shared.remove')}</Link>
                     </div>
                 </div>
             </div>

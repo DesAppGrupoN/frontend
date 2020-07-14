@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Products from '../screens/Products';
 import Commerces from '../screens/Commerces';
 import Search from "../screens/Search";
+import Profile from '../screens/Profile';
 import SearchProducts from '../screens/SearchProducts';
 import ShoppingCart from '../screens/ShoppingCart';
 import Navbar from "../components/Navbar";
@@ -23,6 +24,7 @@ const logedBrowser = () => {
         <Route exact path="/search" component={() => <Search/>} />
         <Route exact path="/search_prod" component={() => <SearchProducts/>} />
         <Route exact path="/cart" component={() => <ShoppingCart/>} />
+        <Route exact path="/profile" component={() => <Profile/>} />
       </Switch>
       <SnackBar/>
     </BrowserRouter>

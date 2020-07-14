@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getShoppingCart } from '../services/ShoppingCart';
+import { getShoppingCart, removeProductFromShoppingCart } from '../services/ShoppingCart';
 import { showFailedSnackbar } from '../components/SnackBar';
 import ProductShoppingCart from '../components/ProductShoppingCart';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -26,10 +26,18 @@ const ShoppingCart = (props) => {
             .catch(() => showFailedSnackbar(t('snackbar.general')));
     }
 
+    function removeProduct(product) {
+        const body = {
+            "idProduct": product.id,
+            "userEmail": user.email
+        }
+        removeProductFromShoppingCart(body).then(() => loadShoppingCart())
+    }
+
     return(
         <div className="container">
             <h5 className="center">{t('shared.total')}: {total}</h5>
-            {list.map((elem) => <ProductShoppingCart product={elem.product} />)}
+            {list.map((elem) => <ProductShoppingCart product={elem.product} onRemove={removeProduct} />)}
             <div className="center">
                     <Link className="back waves-effect waves-light btn-large" onClick={() => console.log("asd")}>{t('purchase.confirm')}</Link>
             </div>

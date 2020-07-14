@@ -66,7 +66,9 @@ const Products = (props) => {
                     <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('products.new')}</Link>
                 </div>
                 <div>
-                {t('csv.input')}<input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} /></div>             
+                    {t('csv.input')}
+                    <input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} />
+                </div>             
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>
             </div>
             {showAdd ?
