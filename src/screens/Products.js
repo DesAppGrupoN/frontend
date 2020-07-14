@@ -5,6 +5,7 @@ import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/
 import {Link, withRouter, useLocation} from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { addProducts } from "../services/Product";
+import { showSuccessfullySnackbar, showFailedSnackbar } from '../components/SnackBar';
 
 const Products = (props) => {
 
@@ -15,7 +16,10 @@ const Products = (props) => {
     const commerceId = location.commerce_id;
     const { t } = useTranslation();
     const handleChangeFile = (file) => {
-        addProducts(file,commerceId);  
+        addProducts(file,commerceId).then(function(response) {
+            showSuccessfullySnackbar(t('snackbar.added_batchProducts') + response.data);
+          }).catch(function(error) {
+            showFailedSnackbar(t('failed_add_batchProducts') + error.data)});  
       }
          
     function submitProduct(name, brand, description, category, price, stock, image, id) {

@@ -17,8 +17,5 @@ export const addProducts = (body,commerceId) => {
 
         }
     }
-    return  axios.post(url, formData, config ).then(function(response) {
-        showSuccessfullySnackbar("Se agregaron los siguientes productos :" + response.data);
-      }).catch(function(error) {
-        showFailedSnackbar("No se pudieron cargar los productos, error :" + error.data)})
+    return  axios.post(url, formData, config )
   } 
