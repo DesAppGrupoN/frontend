@@ -1,7 +1,7 @@
-﻿---------------------------------------------------------------------
+---------------------------------------------------------------------
 TAG ENTREGA 1
 ---------------------------------------------------------------------
-NEW FEATURES (lo que están entregando y está funcionando):
+NEW FEATURES:
 * Crear Usuario
 * Crear Perfil Comercio
 * Consultar horarios Comercio
@@ -25,7 +25,7 @@ KNOWN ISSUES:
 ---------------------------------------------------------------------
 TAG ENTREGA 2
 ---------------------------------------------------------------------
-NEW FEATURES (lo que están entregando y está funcionando):
+NEW FEATURES:
 * Home SPA
 * Login y register
 * ABM de usuarios, productos y comercios
@@ -38,3 +38,25 @@ KNOWN ISSUES:
 * Al agregar un producto no se esta enviando el id del comercio.
 * Algunos errores al listar los productos.
 * Falta feedback en el register y en el login.
+
+---------------------------------------------------------------------
+TAG ENTREGA 3
+---------------------------------------------------------------------
+NEW FEATURES:
+* Auth0
+* Cargar productos por csv
+* Busqueda y visualizacion de productos por comercio
+* Paginacion
+* Carrito de compras
+* Perfil del usuario
+* Test de arquitectura
+* Logs
+
+NOTES
+* Concern de compras
+* Historial de compras
+
+
+KNOWN ISSUES:
+
+* 
