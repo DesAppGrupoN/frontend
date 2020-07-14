@@ -16,7 +16,7 @@ const Commerces = (props) => {
     const { t } = useTranslation();
     const { user } = useAuth0();
 
-    function submitCommerce(name, description, sector, address, image, payMethods, maxDistance, attentionSchedule, id) {
+    function submitCommerce(name, description, sector, address, image, payMethods, maxDistance, days, openingTime, closingTime, id) {
         const body = {
             "name": name,
             "description": description,
@@ -25,7 +25,11 @@ const Commerces = (props) => {
             "image": image,
             "payMethods": payMethods,
             "maxDistance": maxDistance,
-            "attentionSchedule": attentionSchedule,
+            "attentionScheduleDTO": {
+                "days": days,
+                "openingTime": openingTime,
+                "closingTime": closingTime
+            },
             "id": id,
             "userEmail": user.email
         }
