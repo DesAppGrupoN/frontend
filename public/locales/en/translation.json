@@ -50,9 +50,14 @@
     "snackbar": {
         "general": "Something went wrong",
         "added_product": "Added product",
-        "failed_add_product": "There was a problem adding the product. Try again."
+        "failed_add_product": "There was a problem adding the product. Try again.",
+        "added_batchProducts": "The next batch of products was added to your commerce: ",
+        "failed_add_batchProducts": "There was a problem adding to ProductsBatch from File.csv"
     },
     "purchase": {
         "confirm": "Purchase"
+    },
+        "csv":{
+        "input" : "Add batchProductos .csv"
     }
 }
