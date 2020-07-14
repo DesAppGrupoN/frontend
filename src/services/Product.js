@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { server } from './Config';
-
+import { showSuccessfullySnackbar, showFailedSnackbar } from '../components/SnackBar';
 const path = server + '/product/';
 
 export const addProduct = body => { return axios.post(path + 'add', body) }
@@ -17,5 +17,8 @@ export const addProducts = (body,commerceId) => {
 
         }
     }
-    return  axios.post(url, formData, config )
+    return  axios.post(url, formData, config ).then(function(response) {
+        showSuccessfullySnackbar("Se agregaron los siguientes productos :" + response.data);
+      }).catch(function(error) {
+        console.log('ERROR::', error.data);})
   } 
