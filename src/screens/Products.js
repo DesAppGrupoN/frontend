@@ -61,12 +61,9 @@ const Products = (props) => {
                 <div className="center back">
                     <Link className="back waves-effect waves-light btn-large" onClick={toggleShowAdd}>{t('products.new')}</Link>
                 </div>
-
+                <div>
+                {t('csv.input')}<input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} /></div>             
                 <ListProduct onEdit={edit} onDelete={deleteProd} products={products}/>
-          
-                <input type="file" accept=".csv" onChange={e => handleChangeFile(e.target.files[0])} /> 
-                            
-                
             </div>
             {showAdd ?
                 <div className="front"> <NewOrEditProduct product={selectedProduct} onAccept={submitProduct} onCancel={() => setShowAdd(false)}/> </div>
