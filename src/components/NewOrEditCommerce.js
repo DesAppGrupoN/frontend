@@ -54,18 +54,16 @@ const NewOrEditCommerce = (props) => {
                             <input id="name" type="text" class="validate" onChange={(event) => setName(event.target.value)} defaultValue={name} />
                             <label className={active} for="name">{t('shared.name')}</label>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="input-field col s12">
                             <input id="description" type="text" class="validate" onChange={(event) => setDescription(event.target.value)} defaultValue={description} />
                             <label className={active} for="description">{t('shared.description')}</label>
                         </div>
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input id="address" type="text" class="validate" onChange={(event) => setAddress(event.target.value)} defaultValue={address} />
                             <label className={active} for="address">{t('shared.address')}</label>
                         </div>
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input id="maxDistance" type="number" class="validate" onChange={(event) => setMaxDistance(event.target.value)} defaultValue={maxDistance} />
                             <label className={active} for="maxDistance">{t('shared.max_distance')}</label>
                         </div>
