@@ -17,7 +17,6 @@ const CommerceSearch = (props) => {
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5 className="col s12 m4 l10">{commerce.id}</h5>
                         <h5 className="col s12 m4 l10">{commerce.name}</h5>
                         <p className="col s12 m4 l2">{commerce.sector}</p>
                         <h6 className="col s12">{commerce.description}</h6>

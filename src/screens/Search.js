@@ -15,7 +15,7 @@ const Search = (props) => {
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState();
-    const elemPerPage = 10;
+    const elemPerPage = 5;
 
     function handlePageChange() {
         setOffset(currentPage * elemPerPage);
