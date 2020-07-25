@@ -15,27 +15,31 @@ const NewOrEditCommerce = (props) => {
     const [payMethodsSelected, setPaymethodsSelected] = useState();
     const [payMethods, setPaymethods] = useState([]);
     const [maxDistance, setMaxDistance] = useState();
-    const [attentionSchedule, setAttentionSchedule] = useState(undefined);
+    const [openingTime, setOpeningTime] = useState();
+    const [closingTime,setClosingTime ] = useState();
+    const [openingDays,setDay] = useState([]);
     const [id, setId] = useState(undefined);
     const [active, setActive] = useState("");
     const commerce = props.commerce;
     const { t } = useTranslation();
-    const [openingTime, setOpeningTime] = useState();
-    const [closingTime,setClosingTime ] = useState();
+    
     const days=[{value:'MONDAY', label:'Lunes'}, {value:'TUESDAY', label:'Martes'}, {value:'WEDNESDAY', label:'Miercoles'},
     {value:'THURSDAY',label:'Jueves'}, {value:'FRIDAY', label:'Viernes'}, {value:'SATURDAY', label:'Sabado'}, {value:'SUNDAY', label:'Domingo'}];   
-    const [openingDays,setDay] = useState([]);
+    
     useEffect(() => {
         if (commerce) {
             setName(commerce.name);
             setDescription(commerce.description);
             setSector(commerce.sector);
-            setAddress(commerce.address)
+            setAddress(commerce.address);
             setImage(commerce.image);
-            setPaymethodsSelected(commerce.payMethods)
-            setMaxDistance(commerce.maxDistance)
-            setAttentionSchedule(commerce.attentionSchedule)
+            setPaymethodsSelected(commerce.payMethods);
+            setMaxDistance(commerce.maxDistance);
+            setOpeningTime(commerce.attentionSchedule.openingTime);
+            setClosingTime(commerce.attentionSchedule.closingTime)
+            setDay(commerce.attentionSchedule.days)
             setId(commerce.id);
+            console.log(commerce.attentionSchedule, openingTime);
             
             setActive("active");
         }
@@ -51,7 +55,7 @@ const NewOrEditCommerce = (props) => {
                 <form class="col s6 offset-s3 #f5f5f5 grey lighten-4">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="name" type="text" class="validate" onChange={(event) => setName(event.target.value)} defaultValue={name} />
+                            <input id="name" type="text" class="validate" required onChange={(event) => setName(event.target.value)} defaultValue={name} />
                             <label className={active} for="name">{t('shared.name')}</label>
                         </div>
 
@@ -60,11 +64,11 @@ const NewOrEditCommerce = (props) => {
                             <label className={active} for="description">{t('shared.description')}</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="address" type="text" class="validate" onChange={(event) => setAddress(event.target.value)} defaultValue={address} />
+                            <input id="address" type="text" class="validate" required onChange={(event) => setAddress(event.target.value)} defaultValue={address} />
                             <label className={active} for="address">{t('shared.address')}</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="maxDistance" type="number" class="validate" onChange={(event) => setMaxDistance(event.target.value)} defaultValue={maxDistance} />
+                            <input id="maxDistance" type="number" class="validate"  min="0" onChange={(event) => setMaxDistance(event.target.value)} defaultValue={maxDistance} />
                             <label className={active} for="maxDistance">{t('shared.max_distance')}</label>
                         </div>
 
@@ -95,7 +99,7 @@ const NewOrEditCommerce = (props) => {
 
                     <label>{t('shared.opening_days')}</label>
                     <div classNane="row">
-                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setDay([...openingDays, event.target.value])} >
+                        <select multiple class="#f5f5f5 grey lighten-4" onChange={(event) => setDay([...openingDays, event.target.value]) } defaultValue={openingDays}>
                             {days.map(day => <option value={day.value}>{day.label}</option>)}
                         </select>
                     </div>
@@ -104,12 +108,12 @@ const NewOrEditCommerce = (props) => {
                     <div className="col s12">
                         <div class="input-field col s6">
                             <p>{t('shared.from_time')}</p>
-                            <input type="time" name="horariocomienzo"  onChange={(event) => setOpeningTime(event.target.value)}/>
+                            <input type="time" name="horariocomienzo"  required onChange={(event) => setOpeningTime(event.target.value)} defaultValue={openingTime}/>
                         </div>
 
                         <div class="input-field col s6">
                             <p>{t('shared.to_time')}</p>
-                            <input type="time" name="horariofin" onChange={(event) => setClosingTime(event.target.value)}/>
+                            <input type="time" name="horariofin" required onChange={(event) => setClosingTime(event.target.value)} defaultValue={closingTime}/>
                         </div>
                     </div>
 
