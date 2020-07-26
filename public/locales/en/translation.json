@@ -55,7 +55,24 @@
         "failed_add_batch_products": "There was a problem creating the products."
     },
     "purchase": {
-        "confirm": "Purchase"
+        "purchase": "Purchase",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "paymethods": "Paymethod",
+        "shipment": "Shipment type",
+        "day": "Day",
+        "time": "Time",
+        "title_confirm": "Confirm purchase",
+        "completed": "Purchase successfully",
+        "failed": "An error occurred when making the purchase"
+    },
+    "paymethods": {
+        "CASH": "Cash",
+        "CREDIT_CARD": "Credit card"
+    },
+    "shipments" :{
+        "ON_SITE": "On site",
+        "DELIVERY": "Delivery"
     },
     "csv": {
         "input" : "Create from csv file"

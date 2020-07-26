@@ -33,8 +33,6 @@ const Commerces = (props) => {
             "id": id,
             "userEmail": user.email
         }
-
-        console.log("BODY: ", body);
         
         addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces());
     }

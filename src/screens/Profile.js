@@ -5,8 +5,6 @@ const Profile = (props) => {
 
     const { user } = useAuth0();
 
-    console.log("USER: ", user);
-
     return(
         <div className="container z-depth-1 #eeeeee grey lighten-3">
             <p>&nbsp;</p>

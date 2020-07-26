@@ -55,7 +55,24 @@
         "failed_add_batchProducts": "Hubo un problema al agregar batch de productos del archivo .csv"
     },
     "purchase": {
-        "confirm": "Comprar"
+        "purchase": "Comprar",
+        "confirm": "Confirmar",
+        "cancel": "Cancelar",
+        "paymethods": "Tipo de pago",
+        "shipment": "Tipo de envio",
+        "day": "Dia",
+        "time": "Hora",
+        "title_confirm": "Confirmar compra",
+        "completed": "Compra realizada con exito",
+        "failed": "Ocurrio un error al realizar la compra"
+    },
+    "paymethods": {
+        "CASH": "Efectivo",
+        "CREDIT_CARD": "Tarjeta de credito"
+    },
+    "shipments" :{
+        "ON_SITE": "Retiro en local",
+        "DELIVERY": "Delivery"
     },
     "csv":{
         "input" : "Cargar desde archivo csv"
