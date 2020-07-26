@@ -34,7 +34,8 @@ const Commerces = (props) => {
             "id": id,
             "userEmail": user.email
         }
-        addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces()).catch(error => (showFailedSnackbar(error.response.data)));
+        addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces())
+                         .catch(error => (showFailedSnackbar(error.response.data)));
         
     }
 
