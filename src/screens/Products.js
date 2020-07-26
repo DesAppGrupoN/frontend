@@ -43,7 +43,8 @@ const Products = (props) => {
             "id": id
         }
 
-        addProduct(body).then(() => toggleShowAdd()).then(() => loadProducts());
+        addProduct(body).then(() => toggleShowAdd()).then(() => loadProducts())
+                        .catch(error => (showFailedSnackbar(error.response.data)));
     }
 
     function toggleShowAdd() {

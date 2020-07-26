@@ -6,6 +6,7 @@ import { Link, withRouter, useHistory } from "react-router-dom";
 import NewOrEditCommerce from "../components/NewOrEditCommerce";
 import { useTranslation } from 'react-i18next';
 import { useAuth0 } from "@auth0/auth0-react";
+import { showFailedSnackbar } from '../components/SnackBar';
 
 const Commerces = (props) => {
 
@@ -33,8 +34,10 @@ const Commerces = (props) => {
             "id": id,
             "userEmail": user.email
         }
+
+        addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces())
+                         .catch(error => (showFailedSnackbar(error.response.data)));
         
-        addCommerce(body).then(() => toggleShowAdd()).then(() => loadCommerces());
     }
 
     function toggleShowAdd() {
