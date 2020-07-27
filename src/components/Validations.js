@@ -1,8 +1,8 @@
 export const validateProductName = (name, setError) => {
-    if((name!==null) && (name.length>1 && name.length<35)){
+    if((name!==null) && (name.length>1 && name.length<40)){
             return(true)
     }   else    {
-          setError("El nombre debe tener entre 2 y 35 digitos.");
+          setError("El nombre debe tener entre 2 y 40 digitos.");
     }
 }
 export const validateProductCategory = (category, setError) => {
@@ -14,15 +14,15 @@ export const validateProductCategory = (category, setError) => {
 }
 
 export const validateCommerceName = (name, setError) => {
-
-        if((name!==undefined) && (name.length>1 && name.length<25)){
+        console.log("NOMBRE: ", name);
+        if((name!==undefined) && (name.length>1 && name.length<50)){
                 return(true)
         }   else    {
-              setError("El nombre debe tener entre 2 y 25 digitos.");
+              setError("El nombre debe tener entre 2 y 50 digitos.");
         }
 }
 export const validateAddress = (address, setError) => {
-    if((address!==undefined) && (address.length>1 && address.length<50)){
+    if(address!==undefined && address.length>1){
             return(true)
     }   else    {
           setError("La direccion debe tener entre 2 y 50 digitos.");
