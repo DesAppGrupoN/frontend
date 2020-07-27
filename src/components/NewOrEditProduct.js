@@ -11,6 +11,7 @@ const NewOrEditProduct = (props) => {
     const [price, setPrice] = useState();
     const [stock, setStock] = useState();
     const [image, setImage] = useState();
+    const [commerceId, setCommerceId] = useState();
     const [id, setId] = useState(undefined);
     const [active, setActive] = useState("");
     const product = props.product;
@@ -25,6 +26,7 @@ const NewOrEditProduct = (props) => {
             setStock(product.stock);
             setImage(product.image);
             setId(product.id);
+            setCommerceId(product.commerceId);
             setActive("active");
         }
         M.AutoInit();
@@ -76,7 +78,7 @@ const NewOrEditProduct = (props) => {
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, category, price, stock, image, id)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, category, price, stock, image, id, commerceId)}>{t('shared.accept')}</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
                     </div>
 

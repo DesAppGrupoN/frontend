@@ -13,7 +13,7 @@ const Products = (props) => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const location = useLocation();
-    const commerceId = location.commerce_id;
+    var commerceId = location.commerce_id;
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -30,7 +30,8 @@ const Products = (props) => {
             .catch(() => showFailedSnackbar(t('snackbar.failed_add_batch_products')));  
       }
          
-    function submitProduct(name, brand, category, price, stock, image, id) {
+    function submitProduct(name, brand, category, price, stock, image, id, commerceIdParam) {
+        commerceId = commerceIdParam || commerceId;
         const body = {
             "commerceId": commerceId,
             "name": name, 
@@ -41,8 +42,6 @@ const Products = (props) => {
             "image": image,
             "id": id
         }
-        console.log(commerceId)
-        console.log(body)
         addProduct(body).then(() => toggleShowAdd()).then(() => loadProducts())
                         .catch(error => (showFailedSnackbar(error.response.data)));
     }
