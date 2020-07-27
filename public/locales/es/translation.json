@@ -79,5 +79,6 @@
         "input" : "Cargar desde archivo csv"
     },"currency": {
         "money" : "{{num,currency,es}} "
-    }
+    },
+    "formattedDate": "{{date, MM/DD/YYYY, es}}"
 }

@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
+import { moment } from 'moment'
 
 const fallbackLng = ['en'];
 const availableLanguages = ['en', 'es'];
@@ -48,15 +49,18 @@ i18n
 
     interpolation: {
       format: function(value,format, lng) {
-        if(format="currency" && lng =="es"){
+        //Transform Date
+        if(format.includes("/")) {return new Intl.DateTimeFormat(lng).format(value)}else{  
+        //Transform currency
+          if(format="currency" && lng =="es"){
         const valueRes = new Intl.NumberFormat("en",{ style: 'currency', currency: 'USD' }).format(value);
         return valueRes;} 
          else {
           if(format="currency" && lng =="en"){
           const valueRes = new Intl.NumberFormat("es",{ style: 'currency', currency: 'USD'}).format(value/93)
           console.log(valueRes);
-          return valueRes; }}
-        
+          return valueRes; } }
+        }
     },escapeValue: false
     },
   });

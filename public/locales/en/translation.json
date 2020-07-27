@@ -79,5 +79,5 @@
         "input" : "Create from csv file"
     },"currency": {
         "money" : "{{num,currency,en}} "
-    }
+    }, "formattedDate": "{{date, DD/MM/YYYY, en}}"
 }
