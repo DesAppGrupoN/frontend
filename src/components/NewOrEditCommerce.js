@@ -3,6 +3,9 @@ import { getCommerceSectors, getCommercePaymethods } from '../services/Commerce'
 import { useTranslation } from 'react-i18next';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import '../styles/NewOrEditProduct.css';
+import Error from '../components/Error';
+import { validateCommerce } from "../components/Validations";
+
 
 const NewOrEditCommerce = (props) => {
 
@@ -22,10 +25,15 @@ const NewOrEditCommerce = (props) => {
     const [active, setActive] = useState("");
     const commerce = props.commerce;
     const { t } = useTranslation();
-    
+    const [error,setError] = useState("");
+
     const days=[{value:'MONDAY', label:'Lunes'}, {value:'TUESDAY', label:'Martes'}, {value:'WEDNESDAY', label:'Miercoles'},
     {value:'THURSDAY',label:'Jueves'}, {value:'FRIDAY', label:'Viernes'}, {value:'SATURDAY', label:'Sabado'}, {value:'SUNDAY', label:'Domingo'}];   
-    
+    function validate(){
+        if (validateCommerce(name,address,openingTime,closingTime,openingDays,setError)) {
+            props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, openingDays, openingTime, closingTime, id);
+        }
+    }
     useEffect(() => {
         if (commerce) {
             setName(commerce.name);
@@ -53,6 +61,7 @@ const NewOrEditCommerce = (props) => {
         <div className='popup'>
             <div class="row">
                 <form class="col s6 offset-s3 #f5f5f5 grey lighten-4">
+                <Error error={error}/>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="name" type="text" class="validate" required onChange={(event) => setName(event.target.value)} defaultValue={name} />
@@ -118,7 +127,7 @@ const NewOrEditCommerce = (props) => {
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, description, sector, address, image, payMethodsSelected, maxDistance, openingDays, openingTime, closingTime, id)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={validate}>{t('shared.accept')}</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
                     </div>
                 </form>
