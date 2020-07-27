@@ -5,11 +5,13 @@ import ProductShoppingCart from '../components/ProductShoppingCart';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
+import PurchaseComponent from "../components/PurchaseComponent";
 
 const ShoppingCart = (props) => {
 
     const [total, setTotal] = useState(0);
     const [list, setList] = useState([]);
+    const [showPurchaseComponent, setShowPurchaseComponent] = useState(false);
     const { t } = useTranslation();
     const { user } = useAuth0();
 
@@ -34,13 +36,27 @@ const ShoppingCart = (props) => {
         removeProductFromShoppingCart(body).then(() => loadShoppingCart())
     }
 
-    return(
-        <div className="container">
-            <h5 className="center">{t('shared.total')}: {total}</h5>
-            {list.map((elem) => <ProductShoppingCart element={elem} onRemove={removeProduct} />)}
-            <div className="center">
-                    <Link className="back waves-effect waves-light btn-large" onClick={() => console.log("asd")}>{t('purchase.confirm')}</Link>
+    function toggleShowPurchaseComponent() {
+        setShowPurchaseComponent(!showPurchaseComponent);
+    }
+
+
+    return (
+        <div >
+            <div className="back container">
+                <h5 className="center">{t('shared.total')}: {total}</h5>
+                {list.map((elem) => <ProductShoppingCart element={elem} onRemove={removeProduct} />)}
+                <div className="center">
+                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowPurchaseComponent}>{t('purchase.purchase')}</Link>
+                </div>
             </div>
+
+            {showPurchaseComponent &&
+                <div className="front">
+                    <PurchaseComponent onClose={toggleShowPurchaseComponent} update={loadShoppingCart}/>
+                </div>
+            }
+
         </div>
     );
 }
