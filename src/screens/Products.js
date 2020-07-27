@@ -30,19 +30,19 @@ const Products = (props) => {
             .catch(() => showFailedSnackbar(t('snackbar.failed_add_batch_products')));  
       }
          
-    function submitProduct(name, brand, description, category, price, stock, image, id) {
+    function submitProduct(name, brand, category, price, stock, image, id) {
         const body = {
             "commerceId": commerceId,
             "name": name, 
-            "brand": brand, 
-            "description": description, 
+            "brand": brand,  
             "category": category, 
             "price": price, 
             "stock": stock, 
             "image": image,
             "id": id
         }
-
+        console.log(commerceId)
+        console.log(body)
         addProduct(body).then(() => toggleShowAdd()).then(() => loadProducts())
                         .catch(error => (showFailedSnackbar(error.response.data)));
     }

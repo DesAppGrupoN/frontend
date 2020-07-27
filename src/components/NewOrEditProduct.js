@@ -7,7 +7,6 @@ const NewOrEditProduct = (props) => {
 
     const [name, setName] = useState();
     const [brand, setBrand] = useState();
-    const [description, setDescription] = useState();
     const [category, setCategory] = useState();
     const [price, setPrice] = useState();
     const [stock, setStock] = useState();
@@ -21,7 +20,6 @@ const NewOrEditProduct = (props) => {
         if(product) {
             setName(product.name);
             setBrand(product.brand);
-            setDescription(product.description);
             setCategory(product.category);
             setPrice(product.price);
             setStock(product.stock);
@@ -46,22 +44,13 @@ const NewOrEditProduct = (props) => {
                             <label className={active} for="brand">{t('shared.brand')}</label>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="description" type="text" class="validate" onChange={(event) => setDescription(event.target.value)} defaultValue={description}/>
-                            <label className={active} for="description">{t('shared.description')}</label>
-                        </div>
-                    </div>
-
-
                     <label>{t('shared.category')}</label>
                     <div class="row">
                         <select class="#f5f5f5 grey lighten-4" onChange={(event) => setCategory(event.target.value)} defaultValue={category}>
                             <option value="" disabled={true} selected="">{t('shared.category_default')}</option>
-                            <option value="LIMPIEZA">Limpieza</option>
-                            <option value="BEBIDAS">Bebidas</option>
-                            <option value="ALIMENTOS">Alimentos</option>
+                            <option value="CLEANING">Limpieza</option>
+                            <option value="DRINK">Bebidas</option>
+                            <option value="FOOD">Alimentos</option>
                         </select>
                     </div>
 
@@ -87,7 +76,7 @@ const NewOrEditProduct = (props) => {
                     </div>
 
                     <div class="center">
-                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, description, category, price, stock, image, id)}>{t('shared.accept')}</a>
+                        <a class="waves-effect waves-light btn-large" onClick={() => props.onAccept(name, brand, category, price, stock, image, id)}>{t('shared.accept')}</a>
                         <a class="waves-effect waves-light btn-large" onClick={props.onCancel}>{t('shared.cancel')}</a>
                     </div>
 
