@@ -4,7 +4,8 @@
         "commerces": "My commerces",
         "logout": "Logout",
         "language": "Language",
-        "cart": "My cart"
+        "cart": "My cart",
+        "history": "My purchases"
     },
     "home": {
         "title": "What are you looking for today?"

@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import SnackBar from '../components/SnackBar';
 import { useAuth0 } from "@auth0/auth0-react";
 import '../i18next';
+import History from "../screens/History";
 
 const logedBrowser = () => {
   return (
@@ -25,6 +26,7 @@ const logedBrowser = () => {
         <Route exact path="/search_prod" component={() => <SearchProducts/>} />
         <Route exact path="/cart" component={() => <ShoppingCart/>} />
         <Route exact path="/profile" component={() => <Profile/>} />
+        <Route exact path="/history" component={() => <History/>} />
       </Switch>
       <SnackBar/>
     </BrowserRouter>

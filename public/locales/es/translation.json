@@ -4,7 +4,8 @@
         "commerces": "Mis comercios",
         "logout": "Cerrar sesion",
         "language": "Idioma",
-        "cart": "Mi carrito"
+        "cart": "Mi carrito",
+        "history": "Mis compras"
     },
     "home": {
         "title": "¿Que quieres buscar hoy?"
