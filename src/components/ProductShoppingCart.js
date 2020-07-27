@@ -34,7 +34,7 @@ const ProductShoppingCart = (props) => {
                 <div className="card-stacked">
                     <div className="card-content">
                         <h5 className="col s12 m4 l9">{product.name}</h5>
-                        <h5 className="col s12 m4 l3">${product.price}</h5>
+                        <h5 className="col s12 m4 l3">{t('currency.money', { num: product.price })}</h5>
                         <h6 className="col s12">{product.name}</h6>
                         <p className="col s12">{product.brand}</p>
                     </div>

@@ -44,7 +44,7 @@ const ShoppingCart = (props) => {
     return (
         <div >
             <div className="back container">
-                <h5 className="center">{t('shared.total')}: {total}</h5>
+                <h5 className="center">{t('shared.total')}: {t('currency.money', { num: total })}</h5>
                 {list.map((elem) => <ProductShoppingCart element={elem} onRemove={removeProduct} />)}
                 <div className="center">
                     <Link className="back waves-effect waves-light btn-large" onClick={toggleShowPurchaseComponent}>{t('purchase.purchase')}</Link>

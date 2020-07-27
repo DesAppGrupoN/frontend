@@ -77,5 +77,7 @@
     },
     "csv": {
         "input" : "Create from csv file"
+    },"currency": {
+        "money" : "{{num,currency,en}} "
     }
 }

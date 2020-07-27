@@ -47,7 +47,17 @@ i18n
     detection: options,
 
     interpolation: {
-      escapeValue: false
+      format: function(value,format, lng) {
+        if(format="currency" && lng =="es"){
+        const valueRes = new Intl.NumberFormat("en",{ style: 'currency', currency: 'USD' }).format(value);
+        return valueRes;} 
+         else {
+          if(format="currency" && lng =="en"){
+          const valueRes = new Intl.NumberFormat("es",{ style: 'currency', currency: 'USD'}).format(value/93)
+          console.log(valueRes);
+          return valueRes; }}
+        
+    },escapeValue: false
     },
   });
 
