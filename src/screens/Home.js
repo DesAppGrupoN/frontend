@@ -22,7 +22,6 @@ const Home = (props) => {
                     <div className="col l12">
                         <h2 className="center-align">{t('home.title')}</h2>
                         <SearchBarHome />
-                        <h5>{t("formattedDate", { date: new Date() })}</h5>
                     </div>
                 </div>
             </div>
