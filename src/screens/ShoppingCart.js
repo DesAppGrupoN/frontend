@@ -42,18 +42,30 @@ const ShoppingCart = (props) => {
 
 
     return (
-        <div >
-            <div className="back container">
-                <h5 className="center">{t('shared.total')}: {t('currency.money', { num: total })}</h5>
-                {list.map((elem) => <ProductShoppingCart element={elem} onRemove={removeProduct} />)}
-                <div className="center">
-                    <Link className="back waves-effect waves-light btn-large" onClick={toggleShowPurchaseComponent}>{t('purchase.purchase')}</Link>
-                </div>
-            </div>
+        <div className="container">
+            {list.length > 0 ? 
+                <div>
+                    <div className="back">
+                        <h5 className="center">{t('shared.total')}: {t('currency.money', { num: total })}</h5>
+                        {list.map((elem) => <ProductShoppingCart element={elem} onRemove={removeProduct} />)}
+                        <div className="center">
+                            <Link className="back waves-effect waves-light btn-large" onClick={toggleShowPurchaseComponent}>{t('purchase.purchase')}</Link>
+                        </div>
+                    </div>
 
-            {showPurchaseComponent &&
-                <div className="front">
-                    <PurchaseComponent onClose={toggleShowPurchaseComponent} update={loadShoppingCart}/>
+                    {showPurchaseComponent &&
+                        <div className="front">
+                            <PurchaseComponent onClose={toggleShowPurchaseComponent} update={loadShoppingCart}/>
+                        </div>
+                    }
+                </div>
+                :
+                <div className="row center">
+                    <div className="col s12">
+                        <div className="card-panel #fafafa grey lighten-5">
+                            <h5>Tu carrito esta vacio.</h5>
+                        </div>
+                    </div>
                 </div>
             }
 
