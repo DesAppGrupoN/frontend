@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NewOrEditProduct from '../components/NewOrEditProduct';
 import ListProduct from '../components/ListProducts';
-import { addProduct, deleteProduct, getProductsByCommerceId } from '../services/Product';
+import { addProduct, deleteProduct, getAllProductsByCommerceId } from '../services/Product';
 import {Link, withRouter, useLocation} from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { addProducts } from "../services/Product";
@@ -60,7 +60,7 @@ const Products = (props) => {
     }
 
     function loadProducts() {
-        getProductsByCommerceId(commerceId).then(res => setProducts(res.data));
+        getAllProductsByCommerceId(commerceId).then(res => setProducts(res.data));
     }
 
     return (        

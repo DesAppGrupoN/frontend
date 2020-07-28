@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListProductSearch from '../components/ListProductSearch';
-import { getProductsByCommerceId } from '../services/Product';
+import { searchProductsByCommerceId } from '../services/Product';
 import { addProductToShoppingCart } from '../services/ShoppingCart';
 import { showSuccessfullySnackbar, showFailedSnackbar } from '../components/SnackBar';
 import { withRouter, useLocation } from "react-router-dom";
@@ -23,7 +23,7 @@ const SearchProduct = (props) => {
     }, []);
 
     function loadProducts() {
-        getProductsByCommerceId(commerce.id).then(res => setProducts(res.data));
+        searchProductsByCommerceId(commerce.id).then(res => setProducts(res.data));
     }
 
     function addToShoppingCart(product) {
